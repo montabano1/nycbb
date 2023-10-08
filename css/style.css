@@ -988,3 +988,19 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-size: 13px;
   color: #ccc;
 }
+
+.hidden {
+  display: none;
+}
+
+.notification {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  background-color: #28a745; /* Green background */
+  color: #ffffff; /* White text */
+  text-align: center;
+  z-index: 1000;
+}

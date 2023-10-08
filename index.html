@@ -256,12 +256,18 @@ Hero Section
         .then((result) => {
           if (result.data.downloadLink) {
             // Display popup message
-            alert('Spreadsheet download successfully initiated!');
+            // Display the notification
+            notification.classList.remove('hidden');
+
+            // Optionally: Hide notification after a few seconds
+            setTimeout(() => {
+              notification.classList.add('hidden');
+            }, 5000); // Adjust time as needed
 
             // Automatically initiate file download
             const link = document.createElement('a');
             link.href = result.data.downloadLink;
-            link.download = 'NYCBBlist.csv'; // Specify the file name
+            link.download = 'spreadsheet-file-name'; // Specify the file name
             link.click();
           } else {
             // Handle error, e.g., display error message
@@ -274,6 +280,10 @@ Hero Section
         });
     }
   </script>
+
+  <div id="notification" class="hidden notification">
+  Spreadsheet download successfully initiated!
+</div>
 
   <!--==========================
   Call To Action Section

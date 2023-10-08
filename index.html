@@ -24,11 +24,38 @@
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
 
+  <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyAGAHFgzpsHkTsLirPMgF7MntX_mS_oTKY",
+    authDomain: "nycbb-f8a89.firebaseapp.com",
+    projectId: "nycbb-f8a89",
+    storageBucket: "nycbb-f8a89.appspot.com",
+    messagingSenderId: "962600952628",
+    appId: "1:962600952628:web:6492bc049a1f638eb63b61",
+    measurementId: "G-16WYHEBQF1"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-functions.js"></script>
+  <script src="https://js.stripe.com/v3/"></script>
+
   <!-- =======================================================
-    Theme Name: Regna
-    Theme URL: https://bootstrapmade.com/regna-bootstrap-onepage-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
+  Theme Name: Regna
+  Theme URL: https://bootstrapmade.com/regna-bootstrap-onepage-template/
+  Author: BootstrapMade.com
+  License: https://bootstrapmade.com/license/
   ======================================================= -->
 </head>
 
@@ -53,505 +80,557 @@
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#team">Team</a></li>
           <!-- <li class="menu-has-children"><a href="">Drop Down</a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="menu-has-children"><a href="#">Drop Down 2</a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-              <li><a href="#">Drop Down 5</a></li>
-            </ul>
-          </li> -->
-          <li><a href="#contact">Contact Us</a></li>
+          <ul>
+          <li><a href="#">Drop Down 1</a></li>
+          <li class="menu-has-children"><a href="#">Drop Down 2</a>
+          <ul>
+          <li><a href="#">Deep Drop Down 1</a></li>
+          <li><a href="#">Deep Drop Down 2</a></li>
+          <li><a href="#">Deep Drop Down 3</a></li>
+          <li><a href="#">Deep Drop Down 4</a></li>
+          <li><a href="#">Deep Drop Down 5</a></li>
         </ul>
-      </nav><!-- #nav-menu-container -->
-    </div>
-  </header><!-- #header -->
+      </li>
+      <li><a href="#">Drop Down 3</a></li>
+      <li><a href="#">Drop Down 4</a></li>
+      <li><a href="#">Drop Down 5</a></li>
+    </ul>
+  </li> -->
+  <li><a href="#contact">Contact Us</a></li>
+</ul>
+</nav><!-- #nav-menu-container -->
+</div>
+</header><!-- #header -->
+
+<!--==========================
+Hero Section
+============================-->
+<section id="hero">
+  <div class="hero-container">
+    <h1>NYC Broker Blast</h1>
+    <h2>The best NYC real estate broker database</h2>
+    <a href="#about" class="btn-get-started">Get Started</a>
+  </div>
+</section><!-- #hero -->
+
+<main id="main">
 
   <!--==========================
-    Hero Section
+  About Us Section
   ============================-->
-  <section id="hero">
-    <div class="hero-container">
-      <h1>NYC Broker Blast</h1>
-      <h2>The best NYC real estate broker database</h2>
-      <a href="#about" class="btn-get-started">Get Started</a>
-    </div>
-  </section><!-- #hero -->
-
-  <main id="main">
-
-    <!--==========================
-      About Us Section
-    ============================-->
-    <section id="about">
-      <div class="container">
-        <div class="row about-container">
-
-          <div class="col-lg-6 content order-lg-1 order-2">
-            <h2 class="title">Few Words About Us</h2>
-            <p>
-              We have the most up-to-date database of real estate brokers from all of the top companies
-            </p>
-
-            <div class="icon-box wow fadeInUp">
-              <div class="icon"><i class="fa fa-shopping-bag"></i></div>
-              <h4 class="title"><a href="">Comprehensive</a></h4>
-              <p class="description">Provide access to over 16,000 real estate agents’ names, companies, email addresses, office addresses, phone numbers, and more.</p>
-            </div>
-
-            <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
-              <div class="icon"><i class="fa fa-photo"></i></div>
-              <h4 class="title"><a href="">Quick Access</a></h4>
-              <p class="description">Gives you a direct line of communication to a highly sought-after group of professionals.</p>
-            </div>
-
-            <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
-              <div class="icon"><i class="fa fa-bar-chart"></i></div>
-              <h4 class="title"><a href="">Email Campaigns</a></h4>
-              <p class="description">Let our list be the backbone of your immensely successful email marketing campaigns.</p>
-            </div>
-
-          </div>
-
-          <div class="col-lg-6 background order-lg-2 order-1 wow fadeInRight"></div>
-        </div>
-
-      </div>
-    </section><!-- #about -->
-
-    <!--==========================
-      Facts Section
-    ============================-->
-    <section id="facts">
-      <div class="container wow fadeIn">
-        <div class="section-header">
-          <h3 class="section-title">The Complete and Accurate List of NYC Brokers</h3>
-        </div>
-        <div class="row counters">
-
-  				<div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">14303</span>
-            <p>Brokers</p>
-  				</div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">19</span>
-            <p>Brokerage Companies</p>
-  				</div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">5</span>
-            <p>NYC Boroughs</p>
-  				</div>
-
-  			</div>
-
-      </div>
-    </section><!-- #facts -->
-
-    <!--==========================
-      Services Section
-    ============================-->
-    <section id="services">
-      <div class="container wow fadeIn">
-        <div class="section-header">
-          <h3 class="section-title">Select Your Plan</h3>
-          <p class="section-description">Select the option that best fits your needs</p>
-        </div>
-        <div class="row">
-          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-            <div class="box">
-              <div class="icon"><a href=""><i class="fa fa-desktop"></i></a></div>
-              <h4 class="title"><a href="">SEMI-ANNUAL UPDATES</a></h4>
-              <p class="description">Updates provided every 6 months</p>
-              <p class="description">$100 / Update</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
-            <div class="box">
-              <div class="icon"><a href=""><i class="fa fa-bar-chart"></i></a></div>
-              <h4 class="title"><a href="">ANNUAL UPDATES</a></h4>
-              <p class="description">Updates provided every 12 months</p>
-              <p class="description">$150 / Update</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-            <div class="box">
-              <div class="icon"><a href=""><i class="fa fa-paper-plane"></i></a></div>
-              <h4 class="title"><a href="">ONE TIME PURCHAE</a></h4>
-              <p class="description">No updates</p>
-              <p class="description">$200</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- #services -->
-
-    <!--==========================
-    Call To Action Section
-    ============================-->
-    <section id="call-to-action">
-      <div class="container wow fadeIn">
-        <div class="row">
-          <div class="col-lg-9 text-center text-lg-left">
-            <h3 class="cta-title">Download a sample</h3>
-            <p class="cta-text"> Want to see a sample first? Go ahead</p>
-          </div>
-          <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#">Download</a>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- #call-to-action -->
-
-    <!--==========================
-      Portfolio Section
-    ============================-->
-    <section id="portfolio">
-      <div class="container wow fadeInUp">
-        <div class="section-header">
-          <h3 class="section-title">Companies</h3>
-          <p class="section-description">We utilize various public data sources to provide the the most complete profile available for every broker</p>
-        </div>
-        <!-- <div class="row">
-
-          <div class="col-lg-12">
-            <ul id="portfolio-flters">
-              <li data-filter=".filter-app, .filter-card, .filter-logo, .filter-web" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-logo">Logo</li>
-              <li data-filter=".filter-web">Web</li>
-            </ul>
-          </div>
-        </div> -->
-
-        <div class="row" id="portfolio-wrapper">
-          <div class="col-lg-3 col-md-6 portfolio-item filter-app">
-            <a href="https://www.compass.com/agents/">
-              <img src="img/portfolio/compass.jpeg" alt="">
-              <div class="details">
-                <h4>Compass</h4>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-web">
-            <a href="https://www.elliman.com/associates/search">
-              <img src="img/portfolio/elliman.jpeg" alt="">
-              <div class="details">
-                <h4>Elliman</h4>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-app">
-            <a href="https://www.bhsusa.com/agents">
-              <img src="img/portfolio/bhs.png" alt="">
-              <div class="details">
-                <h4>Brown Harris Stevens</h4>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-card">
-            <a href="">
-              <img src="img/portfolio/card1.jpg" alt="">
-              <div class="details">
-                <h4>Card 1</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-card">
-            <a href="">
-              <img src="img/portfolio/card2.jpg" alt="">
-              <div class="details">
-                <h4>Card 2</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-web">
-            <a href="">
-              <img src="img/portfolio/web3.jpg" alt="">
-              <div class="details">
-                <h4>Web 3</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-card">
-            <a href="">
-              <img src="img/portfolio/card3.jpg" alt="">
-              <div class="details">
-                <h4>Card 3</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-app">
-            <a href="">
-              <img src="img/portfolio/app2.jpg" alt="">
-              <div class="details">
-                <h4>App 2</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-logo">
-            <a href="">
-              <img src="img/portfolio/logo1.jpg" alt="">
-              <div class="details">
-                <h4>Logo 1</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-logo">
-            <a href="">
-              <img src="img/portfolio/logo3.jpg" alt="">
-              <div class="details">
-                <h4>Logo 3</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-web">
-            <a href="">
-              <img src="img/portfolio/web1.jpg" alt="">
-              <div class="details">
-                <h4>Web 1</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-logo">
-            <a href="">
-              <img src="img/portfolio/logo2.jpg" alt="">
-              <div class="details">
-                <h4>Logo 2</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- #portfolio -->
-
-    <!--==========================
-      Team Section
-    ============================-->
-    <!-- <section id="team">
-      <div class="container wow fadeInUp">
-        <div class="section-header">
-          <h3 class="section-title">Team</h3>
-          <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
-        </div>
-        <div class="row">
-          <div class="col-lg-3 col-md-6">
-            <div class="member">
-              <div class="pic"><img src="img/team-1.jpg" alt=""></div>
-              <h4>Walter White</h4>
-              <span>Chief Executive Officer</span>
-              <div class="social">
-                <a href=""><i class="fa fa-twitter"></i></a>
-                <a href=""><i class="fa fa-facebook"></i></a>
-                <a href=""><i class="fa fa-google-plus"></i></a>
-                <a href=""><i class="fa fa-linkedin"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="member">
-              <div class="pic"><img src="img/team-2.jpg" alt=""></div>
-              <h4>Sarah Jhinson</h4>
-              <span>Product Manager</span>
-              <div class="social">
-                <a href=""><i class="fa fa-twitter"></i></a>
-                <a href=""><i class="fa fa-facebook"></i></a>
-                <a href=""><i class="fa fa-google-plus"></i></a>
-                <a href=""><i class="fa fa-linkedin"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="member">
-              <div class="pic"><img src="img/team-3.jpg" alt=""></div>
-              <h4>William Anderson</h4>
-              <span>CTO</span>
-              <div class="social">
-                <a href=""><i class="fa fa-twitter"></i></a>
-                <a href=""><i class="fa fa-facebook"></i></a>
-                <a href=""><i class="fa fa-google-plus"></i></a>
-                <a href=""><i class="fa fa-linkedin"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="member">
-              <div class="pic"><img src="img/team-4.jpg" alt=""></div>
-              <h4>Amanda Jepson</h4>
-              <span>Accountant</span>
-              <div class="social">
-                <a href=""><i class="fa fa-twitter"></i></a>
-                <a href=""><i class="fa fa-facebook"></i></a>
-                <a href=""><i class="fa fa-google-plus"></i></a>
-                <a href=""><i class="fa fa-linkedin"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section> -->
-
-    <!--==========================
-      Contact Section
-    ============================-->
-    <section id="contact">
-      <div class="container wow fadeInUp">
-        <div class="section-header">
-          <h3 class="section-title">Contact</h3>
-          <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
-        </div>
-      </div>
-
-      <!-- Uncomment below if you wan to use dynamic maps -->
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22864.11283411948!2d-73.96468908098944!3d40.630720240038435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sbg!4v1540447494452" width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
-
-      <div class="container wow fadeInUp mt-5">
-        <div class="row justify-content-center">
-
-          <div class="col-lg-3 col-md-4">
-
-            <div class="info">
-              <div>
-                <i class="fa fa-map-marker"></i>
-                <p>A108 Adam Street<br>New York, NY 535022</p>
-              </div>
-
-              <div>
-                <i class="fa fa-envelope"></i>
-                <p>info@example.com</p>
-              </div>
-
-              <div>
-                <i class="fa fa-phone"></i>
-                <p>+1 5589 55488 55s</p>
-              </div>
-            </div>
-
-            <div class="social-links">
-              <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-              <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-              <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-              <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-            </div>
-
-          </div>
-
-          <div class="col-lg-5 col-md-8">
-            <div class="form">
-              <div id="sendmessage">Your message has been sent. Thank you!</div>
-              <div id="errormessage"></div>
-              <form action="" method="post" role="form" class="contactForm">
-                <div class="form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                  <div class="validation"></div>
-                </div>
-                <div class="form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                  <div class="validation"></div>
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                  <div class="validation"></div>
-                </div>
-                <div class="form-group">
-                  <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-                  <div class="validation"></div>
-                </div>
-                <div class="text-center"><button type="submit">Send Message</button></div>
-              </form>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- #contact -->
-
-  </main>
-
-  <!--==========================
-    Footer
-  ============================-->
-  <footer id="footer">
-    <div class="footer-top">
-      <div class="container">
-
-      </div>
-    </div>
-
+  <section id="about">
     <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong>Regna</strong>. All Rights Reserved
+      <div class="row about-container">
+
+        <div class="col-lg-6 content order-lg-1 order-2">
+          <h2 class="title">Few Words About Us</h2>
+          <p>
+            We have the most up-to-date database of real estate brokers from all of the top companies
+          </p>
+
+          <div class="icon-box wow fadeInUp">
+            <div class="icon"><i class="fa fa-shopping-bag"></i></div>
+            <h4 class="title"><a href="">Comprehensive</a></h4>
+            <p class="description">Provide access to over 16,000 real estate agents’ names, companies, email addresses, office addresses, phone numbers, and more.</p>
+          </div>
+
+          <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
+            <div class="icon"><i class="fa fa-photo"></i></div>
+            <h4 class="title"><a href="">Quick Access</a></h4>
+            <p class="description">Gives you a direct line of communication to a highly sought-after group of professionals.</p>
+          </div>
+
+          <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
+            <div class="icon"><i class="fa fa-bar-chart"></i></div>
+            <h4 class="title"><a href="">Email Campaigns</a></h4>
+            <p class="description">Let our list be the backbone of your immensely successful email marketing campaigns.</p>
+          </div>
+
+        </div>
+
+        <div class="col-lg-6 background order-lg-2 order-1 wow fadeInRight"></div>
       </div>
-      <div class="credits">
-        <!--
-          All the links in the footer should remain intact.
-          You can delete the links only if you purchased the pro version.
-          Licensing information: https://bootstrapmade.com/license/
-          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Regna
-        -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
+
     </div>
-  </footer><!-- #footer -->
+  </section><!-- #about -->
 
-  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <!--==========================
+  Facts Section
+  ============================-->
+  <section id="facts">
+    <div class="container wow fadeIn">
+      <div class="section-header">
+        <h3 class="section-title">The Complete and Accurate List of NYC Brokers</h3>
+      </div>
+      <div class="row counters">
 
-  <!-- JavaScript Libraries -->
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/jquery/jquery-migrate.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-  <script src="lib/wow/wow.min.js"></script>
-  <script src="lib/waypoints/waypoints.min.js"></script>
-  <script src="lib/counterup/counterup.min.js"></script>
-  <script src="lib/superfish/hoverIntent.js"></script>
-  <script src="lib/superfish/superfish.min.js"></script>
+        <div class="col-lg-3 col-6 text-center">
+          <span data-toggle="counter-up">14303</span>
+          <p>Brokers</p>
+        </div>
 
-  <!-- Contact Form JavaScript File -->
-  <script src="contactform/contactform.js"></script>
+        <div class="col-lg-3 col-6 text-center">
+          <span data-toggle="counter-up">19</span>
+          <p>Brokerage Companies</p>
+        </div>
 
-  <!-- Template Main Javascript File -->
-  <script src="js/main.js"></script>
+        <div class="col-lg-3 col-6 text-center">
+          <span data-toggle="counter-up">5</span>
+          <p>NYC Boroughs</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- #facts -->
+
+  <!--==========================
+  Services Section
+  ============================-->
+  <section id="services">
+    <div class="container wow fadeIn">
+      <div class="section-header">
+        <h3 class="section-title">Select Your Plan</h3>
+        <p class="section-description">Select the option that best fits your needs</p>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+          <div class="box">
+            <div class="icon"><a href=""><i class="fa fa-desktop"></i></a></div>
+            <h4 class="title"><a href="">SEMI-ANNUAL UPDATES</a></h4>
+            <p class="description">Updates provided every 6 months</p>
+            <p class="description">$100 / Update</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+          <div class="box">
+            <div class="icon"><a href=""><i class="fa fa-bar-chart"></i></a></div>
+            <h4 class="title"><a href="">ANNUAL UPDATES</a></h4>
+            <p class="description">Updates provided every 12 months</p>
+            <p class="description">$150 / Update</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+          <div class="box">
+            <div class="icon"><a href=""><i class="fa fa-paper-plane"></i></a></div>
+            <h4 class="title"><a href="">ONE TIME PURCHAE</a></h4>
+            <p class="description">No updates</p>
+            <p class="description">$200</p>
+            <button id="purchase-button">Purchase</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- #services -->
+
+  <script>
+  // Initialize Firebase
+  firebase.initializeApp({
+    apiKey: "AIzaSyAGAHFgzpsHkTsLirPMgF7MntX_mS_oTKY",
+    authDomain: "nycbb-f8a89.firebaseapp.com",
+    projectId: "nycbb-f8a89",
+  });
+
+  // Initialize Stripe
+  const stripe = Stripe('pk_live_51JZQvwGLuZ2g1XvgGkZtNdDshUwSvbiWo9qzF3LjE8I926gpOQK7mICWamljRZ6CLdH5scJgE2evvUz7eyloHJy900SL3cSgtM');
+
+  document.getElementById('purchase-button').addEventListener('click', async () => {
+    // Call your Cloud Function
+    const createCheckoutSession = firebase.functions().httpsCallable('createCheckoutSession');
+    const { data: { sessionId } } = await createCheckoutSession();
+
+    // Redirect to Checkout
+    await stripe.redirectToCheckout({ sessionId });
+  });
+
+  const urlParams = new URLSearchParams(window.location.search);
+    const paymentStatus = urlParams.get('payment');
+    const sessionId = urlParams.get('session_id');
+
+    // If payment status is 'success', verify the payment and provide the download link
+    if (paymentStatus === 'success' && sessionId) {
+      // Call your Cloud Function for payment validation
+      const verifyPaymentAndProvideDownloadLink = firebase.functions().httpsCallable('verifyPaymentAndProvideDownloadLink');
+      verifyPaymentAndProvideDownloadLink({ session_id: sessionId })
+        .then((result) => {
+          if (result.data.downloadLink) {
+            // Display popup message
+            alert('Spreadsheet download successfully initiated!');
+
+            // Automatically initiate file download
+            const link = document.createElement('a');
+            link.href = result.data.downloadLink;
+            link.download = 'NYCBBlist.csv'; // Specify the file name
+            link.click();
+          } else {
+            // Handle error, e.g., display error message
+            alert('Error initiating download. Please try again.');
+          }
+        })
+        .catch((error) => {
+          // Handle callable function error
+          console.error('Error calling function:', error);
+        });
+    }
+  </script>
+
+  <!--==========================
+  Call To Action Section
+  ============================-->
+  <section id="call-to-action">
+    <div class="container wow fadeIn">
+      <div class="row">
+        <div class="col-lg-9 text-center text-lg-left">
+          <h3 class="cta-title">Download a sample</h3>
+          <p class="cta-text"> Want to see a sample first? Go ahead</p>
+        </div>
+        <div class="col-lg-3 cta-btn-container text-center">
+          <a class="cta-btn align-middle" download="NYCBBlist" href="">Download</a>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- #call-to-action -->
+
+  <!--==========================
+  Portfolio Section
+  ============================-->
+  <section id="portfolio">
+    <div class="container wow fadeInUp">
+      <div class="section-header">
+        <h3 class="section-title">Companies</h3>
+        <p class="section-description">We utilize various public data sources to provide the the most complete profile available for every broker</p>
+      </div>
+      <!-- <div class="row">
+
+      <div class="col-lg-12">
+      <ul id="portfolio-flters">
+      <li data-filter=".filter-app, .filter-card, .filter-logo, .filter-web" class="filter-active">All</li>
+      <li data-filter=".filter-app">App</li>
+      <li data-filter=".filter-card">Card</li>
+      <li data-filter=".filter-logo">Logo</li>
+      <li data-filter=".filter-web">Web</li>
+    </ul>
+  </div>
+</div> -->
+
+<div class="row" id="portfolio-wrapper">
+  <div class="col-lg-3 col-md-6 portfolio-item filter-app">
+    <a href="https://www.compass.com/agents/">
+      <img src="img/portfolio/compass.jpeg" alt="">
+      <div class="details">
+        <h4>Compass</h4>
+      </div>
+    </a>
+  </div>
+
+  <div class="col-lg-3 col-md-6 portfolio-item filter-web">
+    <a href="https://www.elliman.com/associates/search">
+      <img src="img/portfolio/elliman.jpeg" alt="">
+      <div class="details">
+        <h4>Elliman</h4>
+      </div>
+    </a>
+  </div>
+
+  <div class="col-lg-3 col-md-6 portfolio-item filter-app">
+    <a href="https://www.bhsusa.com/agents">
+      <img src="img/portfolio/bhs.png" alt="">
+      <div class="details">
+        <h4>Brown Harris Stevens</h4>
+      </div>
+    </a>
+  </div>
+
+  <div class="col-lg-3 col-md-6 portfolio-item filter-card">
+    <a href="">
+      <img src="img/portfolio/card1.jpg" alt="">
+      <div class="details">
+        <h4>Card 1</h4>
+        <span>Alored dono par</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="col-lg-3 col-md-6 portfolio-item filter-card">
+    <a href="">
+      <img src="img/portfolio/card2.jpg" alt="">
+      <div class="details">
+        <h4>Card 2</h4>
+        <span>Alored dono par</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="col-lg-3 col-md-6 portfolio-item filter-web">
+    <a href="">
+      <img src="img/portfolio/web3.jpg" alt="">
+      <div class="details">
+        <h4>Web 3</h4>
+        <span>Alored dono par</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="col-lg-3 col-md-6 portfolio-item filter-card">
+    <a href="">
+      <img src="img/portfolio/card3.jpg" alt="">
+      <div class="details">
+        <h4>Card 3</h4>
+        <span>Alored dono par</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="col-lg-3 col-md-6 portfolio-item filter-app">
+    <a href="">
+      <img src="img/portfolio/app2.jpg" alt="">
+      <div class="details">
+        <h4>App 2</h4>
+        <span>Alored dono par</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="col-lg-3 col-md-6 portfolio-item filter-logo">
+    <a href="">
+      <img src="img/portfolio/logo1.jpg" alt="">
+      <div class="details">
+        <h4>Logo 1</h4>
+        <span>Alored dono par</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="col-lg-3 col-md-6 portfolio-item filter-logo">
+    <a href="">
+      <img src="img/portfolio/logo3.jpg" alt="">
+      <div class="details">
+        <h4>Logo 3</h4>
+        <span>Alored dono par</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="col-lg-3 col-md-6 portfolio-item filter-web">
+    <a href="">
+      <img src="img/portfolio/web1.jpg" alt="">
+      <div class="details">
+        <h4>Web 1</h4>
+        <span>Alored dono par</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="col-lg-3 col-md-6 portfolio-item filter-logo">
+    <a href="">
+      <img src="img/portfolio/logo2.jpg" alt="">
+      <div class="details">
+        <h4>Logo 2</h4>
+        <span>Alored dono par</span>
+      </div>
+    </a>
+  </div>
+
+</div>
+
+</div>
+</section><!-- #portfolio -->
+
+<!--==========================
+Team Section
+============================-->
+<!-- <section id="team">
+<div class="container wow fadeInUp">
+<div class="section-header">
+<h3 class="section-title">Team</h3>
+<p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+</div>
+<div class="row">
+<div class="col-lg-3 col-md-6">
+<div class="member">
+<div class="pic"><img src="img/team-1.jpg" alt=""></div>
+<h4>Walter White</h4>
+<span>Chief Executive Officer</span>
+<div class="social">
+<a href=""><i class="fa fa-twitter"></i></a>
+<a href=""><i class="fa fa-facebook"></i></a>
+<a href=""><i class="fa fa-google-plus"></i></a>
+<a href=""><i class="fa fa-linkedin"></i></a>
+</div>
+</div>
+</div>
+
+<div class="col-lg-3 col-md-6">
+<div class="member">
+<div class="pic"><img src="img/team-2.jpg" alt=""></div>
+<h4>Sarah Jhinson</h4>
+<span>Product Manager</span>
+<div class="social">
+<a href=""><i class="fa fa-twitter"></i></a>
+<a href=""><i class="fa fa-facebook"></i></a>
+<a href=""><i class="fa fa-google-plus"></i></a>
+<a href=""><i class="fa fa-linkedin"></i></a>
+</div>
+</div>
+</div>
+
+<div class="col-lg-3 col-md-6">
+<div class="member">
+<div class="pic"><img src="img/team-3.jpg" alt=""></div>
+<h4>William Anderson</h4>
+<span>CTO</span>
+<div class="social">
+<a href=""><i class="fa fa-twitter"></i></a>
+<a href=""><i class="fa fa-facebook"></i></a>
+<a href=""><i class="fa fa-google-plus"></i></a>
+<a href=""><i class="fa fa-linkedin"></i></a>
+</div>
+</div>
+</div>
+
+<div class="col-lg-3 col-md-6">
+<div class="member">
+<div class="pic"><img src="img/team-4.jpg" alt=""></div>
+<h4>Amanda Jepson</h4>
+<span>Accountant</span>
+<div class="social">
+<a href=""><i class="fa fa-twitter"></i></a>
+<a href=""><i class="fa fa-facebook"></i></a>
+<a href=""><i class="fa fa-google-plus"></i></a>
+<a href=""><i class="fa fa-linkedin"></i></a>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</section> -->
+
+<!--==========================
+Contact Section
+============================-->
+<section id="contact">
+  <div class="container wow fadeInUp">
+    <div class="section-header">
+      <h3 class="section-title">Contact</h3>
+      <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+    </div>
+  </div>
+
+  <!-- Uncomment below if you wan to use dynamic maps -->
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22864.11283411948!2d-73.96468908098944!3d40.630720240038435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sbg!4v1540447494452" width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+  <div class="container wow fadeInUp mt-5">
+    <div class="row justify-content-center">
+
+      <div class="col-lg-3 col-md-4">
+
+        <div class="info">
+          <div>
+            <i class="fa fa-map-marker"></i>
+            <p>A108 Adam Street<br>New York, NY 535022</p>
+          </div>
+
+          <div>
+            <i class="fa fa-envelope"></i>
+            <p>info@example.com</p>
+          </div>
+
+          <div>
+            <i class="fa fa-phone"></i>
+            <p>+1 5589 55488 55s</p>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+          <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+          <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+          <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+          <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+        </div>
+
+      </div>
+
+      <div class="col-lg-5 col-md-8">
+        <div class="form">
+          <div id="sendmessage">Your message has been sent. Thank you!</div>
+          <div id="errormessage"></div>
+          <form action="" method="post" role="form" class="contactForm">
+            <div class="form-group">
+              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+              <div class="validation"></div>
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+              <div class="validation"></div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+              <div class="validation"></div>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+              <div class="validation"></div>
+            </div>
+            <div class="text-center"><button type="submit">Send Message</button></div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section><!-- #contact -->
+
+</main>
+
+<!--==========================
+Footer
+============================-->
+<footer id="footer">
+  <div class="footer-top">
+    <div class="container">
+
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="copyright">
+      &copy; Copyright <strong>Regna</strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      <!--
+      All the links in the footer should remain intact.
+      You can delete the links only if you purchased the pro version.
+      Licensing information: https://bootstrapmade.com/license/
+      Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Regna
+    -->
+    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+  </div>
+</div>
+</footer><!-- #footer -->
+
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+<!-- JavaScript Libraries -->
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/jquery/jquery-migrate.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/wow/wow.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/counterup/counterup.min.js"></script>
+<script src="lib/superfish/hoverIntent.js"></script>
+<script src="lib/superfish/superfish.min.js"></script>
+
+<!-- Contact Form JavaScript File -->
+<script src="contactform/contactform.js"></script>
+
+<!-- Template Main Javascript File -->
+<script src="js/main.js"></script>
 
 </body>
 </html>

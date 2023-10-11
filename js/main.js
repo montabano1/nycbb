@@ -126,5 +126,49 @@ jQuery(document).ready(function ($) {
   });
 
   // custom code
+  $('#purchaseBtn').on('click', function() {
+    $('#emailModal').show();
+  });
 
+  $('.close').on('click', function() {
+    $('#emailModal').hide();
+  });
+
+  function validateEmail(email) {
+    var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+  }
+
+  $('#submitEmailBtn').on('click', function() {
+    var email = $('#emailInput').val();
+    if (validateEmail(email)) {
+      $('#emailModal').hide();
+
+      // Initialize Firebase and call Cloud Function
+      var functions = firebase.functions();
+      var createCheckoutSession = functions.httpsCallable('createCheckoutSession');
+
+      createCheckoutSession({ email: email })
+  .then(function(result) {
+    console.log(result)
+
+    // Redirect to Stripe Checkout using session ID received from Cloud Function
+    var stripe = Stripe('pk_live_51JZQvwGLuZ2g1XvgGkZtNdDshUwSvbiWo9qzF3LjE8I926gpOQK7mICWamljRZ6CLdH5scJgE2evvUz7eyloHJy900SL3cSgtM');
+    stripe.redirectToCheckout({ sessionId: result.data.sessionId })
+      .then(function (result) {
+        if (result.error) {
+          alert(result.error.message);
+        }
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  })
+  .catch(function(error) {
+    console.error('Error:', error);
+  });
+    } else {
+      alert('Please enter a valid email address.');
+    }
+  });
 });

@@ -1,0 +1,28 @@
+{
+  "name": "regna",
+  "version": "1.0.0",
+  "description": "Thanks for downloading this theme!",
+  "main": "cse.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/montabano1/nycbb.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/montabano1/nycbb/issues"
+  },
+  "homepage": "https://github.com/montabano1/nycbb#readme",
+  "dependencies": {
+    "csv-parser": "^3.0.0",
+    "csv-writer": "^1.6.0",
+    "xlsx": "^0.18.5"
+  }
+}

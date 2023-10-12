@@ -143,7 +143,7 @@ jQuery(document).ready(function ($) {
     var email = $('#emailInput').val();
     if (validateEmail(email)) {
       $('#emailModal').hide();
-
+      localStorage.setItem('userEmail', email);
       // Initialize Firebase and call Cloud Function
       var functions = firebase.functions();
       var createCheckoutSession = functions.httpsCallable('createCheckoutSession');
@@ -186,7 +186,7 @@ jQuery(document).ready(function ($) {
         // For this example, we'll just check its existence
 
         // Set the success message
-        var email = "user@example.com"; // Replace with actual email if available
+        const email = localStorage.getItem('userEmail'); // Replace with actual email if available
         var message = "Successful checkout. An email with a download link has been sent to " + email + ", please download within the next 15 minutes";
         $("#successMessage").text(message);
 

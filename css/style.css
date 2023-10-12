@@ -1028,6 +1028,38 @@ body.mobile-nav-active #mobile-nav-toggle {
   max-width: 500px; /* optional, to ensure modal isn't too wide on large screens */
 }
 
+/* Style for the email input */
+#emailInput {
+    margin-bottom: 10px; /* Spacing between the input and the button */
+    padding: 10px;       /* Padding inside the input for better appearance */
+    width: 80%;          /* Adjust this if you need the input to be wider or narrower */
+    max-width: 400px;    /* Optional: to ensure the input doesn't get too wide on larger screens */
+    display: block;      /* Make the input a block element so it takes the full width */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+/* Style for the submit button */
+#submitEmailBtn {
+    padding: 12px 20px;     /* Increase padding for a bigger button */
+    font-size: 16px;        /* Increase font size for better readability */
+    cursor: pointer;        /* Change cursor to pointer on hover */
+    background-color: #007BFF; /* Blue background color, adjust as needed */
+    color: #FFFFFF;         /* White text color */
+    border: none;           /* Remove any default borders */
+    border-radius: 5px;     /* Slightly rounded corners */
+    display: block;         /* Make the button a block element */
+    width: 80%;             /* Make the button 80% width of its container */
+    max-width: 400px;       /* Optional: to ensure the button doesn't get too wide on larger screens */
+    margin: 0 auto;         /* Center the button */
+    transition: background-color 0.3s; /* Smooth transition for button hover effect */
+}
+
+/* Hover effect for the submit button */
+#submitEmailBtn:hover {
+    background-color: #0056b3; /* Slightly darker blue on hover, adjust as needed */
+}
+
+
 /* Styling for devices with width greater than 768px (tablets, laptops, desktops) */
 @media screen and (min-width: 768px) {
   .modal-content {

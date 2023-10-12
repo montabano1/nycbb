@@ -36,7 +36,7 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
         event = stripe.webhooks.constructEvent(
             req.rawBody,
             req.headers['stripe-signature'],
-            'your-stripe-webhook-secret'
+            'whsec_GV5SqQ9wr931GRCEvKiiRNszVuMLmRJh'
         );
     } catch (err) {
         console.log(`⚠️  Webhook signature verification failed.`, err.message);
@@ -63,8 +63,8 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
         // Set up the email data
         const msg = {
             to: customerEmail,
-            from: 'NYCBrokerBlast7@gmail.com',
-            subject: 'NYCBrokerBlast Spreadsheet',
+            from: 'agent@brokerlistnyc.com',
+            subject: 'BrokerListNYC Spreadsheet',
             text: 'Thank you for your purchase! Here is your spreadsheet.',
             html: `<p>Thank you for your purchase! <a href="${signedUrl[0]}">Download your spreadsheet</a>.</p>`
         };

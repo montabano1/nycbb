@@ -1,6 +1,6 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
-const stripe = require('stripe')('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');
+const stripe = require('stripe')('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');
 const sgMail = require('@sendgrid/mail');
 
 admin.initializeApp();
@@ -36,7 +36,7 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
         event = stripe.webhooks.constructEvent(
             req.rawBody,
             req.headers['stripe-signature'],
-            'whsec_GV5SqQ9wr931GRCEvKiiRNszVuMLmRJh'
+            'whsec_jTbwmI8enjgd0xatd58OhMQ4PyedA5eF'
         );
     } catch (err) {
         console.log(`⚠️  Webhook signature verification failed.`, err.message);

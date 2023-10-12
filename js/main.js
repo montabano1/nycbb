@@ -153,7 +153,7 @@ jQuery(document).ready(function ($) {
     console.log(result)
 
     // Redirect to Stripe Checkout using session ID received from Cloud Function
-    var stripe = Stripe('pk_live_51JZQvwGLuZ2g1XvgGkZtNdDshUwSvbiWo9qzF3LjE8I926gpOQK7mICWamljRZ6CLdH5scJgE2evvUz7eyloHJy900SL3cSgtM');
+    var stripe = Stripe('pk_live_51O0FmtDhrn1JbalvsKHCX0QXFxMnTkLI3NfpbK19pdiN7FSghO5S1b3DMXqXeiSIA3TAo0un9htxlY6DxUvhiZGI00N0SNzcTs');
     stripe.redirectToCheckout({ sessionId: result.data.sessionId })
       .then(function (result) {
         if (result.error) {

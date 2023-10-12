@@ -190,7 +190,7 @@ jQuery(document).ready(function ($) {
         // For this example, we'll just check its existence
 
         // Set the success message
-        var message = "Successful checkout. An email with a download link has been sent to " + email + ", please download within the next 15 minutes";
+        var message = "Successful checkout. An email with the attached spreadsheet has been sent to " + email;
         $("#successMessage").text(message);
 
         // Display the modal

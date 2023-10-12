@@ -171,4 +171,31 @@ jQuery(document).ready(function ($) {
       alert('Please enter a valid email address.');
     }
   });
+
+  function getUrlParameter(name) {
+        var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    // Check URL parameters
+    var paymentStatus = getUrlParameter('payment');
+    var sessionId = getUrlParameter('session_id');
+
+    if (paymentStatus === "success" && sessionId) {
+        // You can further validate the session ID if needed
+        // For this example, we'll just check its existence
+
+        // Set the success message
+        var email = "user@example.com"; // Replace with actual email if available
+        var message = "Successful checkout. An email with a download link has been sent to " + email + ", please download within the next 15 minutes";
+        $("#successMessage").text(message);
+
+        // Display the modal
+        $("#successModal").show();
+    }
+
+    // Close modal on button click
+    $("#closeModalBtn").click(function() {
+        $("#successModal").hide();
+    });
 });

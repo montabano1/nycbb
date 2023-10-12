@@ -22,8 +22,8 @@ exports.createCheckoutSession = functions.https.onCall(async (data, context) => 
     }],
     customer_email: userEmail,
     mode: 'payment',
-    success_url: 'https://michaelmontalbano.com/nycbb?payment=success&session_id={CHECKOUT_SESSION_ID}',
-    cancel_url: 'https://michaelmontalbano.com/nycbb/',
+    success_url: 'https://brokerlistnyc.com?payment=success&session_id={CHECKOUT_SESSION_ID}',
+    cancel_url: 'https://brokerlistnyc.com',
   });
 
   return {sessionId: session.id};
@@ -51,7 +51,7 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
 
         // Retrieve the file from Firebase Storage
         const bucket = admin.storage().bucket();
-        const filePath = 'NYCBBlist.csv'; // Update this to the path of your file in Firebase Storage
+        const filePath = 'BrokerListNYC.csv'; // Update this to the path of your file in Firebase Storage
         const file = bucket.file(filePath);
 
         // Generate a signed URL for the file

@@ -190,7 +190,6 @@ jQuery(document).ready(function ($) {
         // For this example, we'll just check its existence
 
         // Set the success message
-        const email = localStorage.getItem('userEmail'); // Replace with actual email if available
         var message = "Successful checkout. An email with a download link has been sent to " + email + ", please download within the next 15 minutes";
         $("#successMessage").text(message);
 

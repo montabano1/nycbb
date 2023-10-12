@@ -139,11 +139,13 @@ jQuery(document).ready(function ($) {
     return re.test(String(email).toLowerCase());
   }
 
-  $('#submitEmailBtn').on('click', function() {
+  $('#submitEmailBtn').on('click touchstart', function(e) {
+    e.stopPropagation(); // Prevent the event from propagating to parent elements
+
+    console.log("Submit button clicked"); // Debugging statement
     var email = $('#emailInput').val();
     if (validateEmail(email)) {
       $('#emailModal').hide();
-      localStorage.setItem('userEmail', email);
       // Initialize Firebase and call Cloud Function
       var functions = firebase.functions();
       var createCheckoutSession = functions.httpsCallable('createCheckoutSession');

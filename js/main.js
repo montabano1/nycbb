@@ -180,6 +180,7 @@ jQuery(document).ready(function ($) {
     // Check URL parameters
     var paymentStatus = getUrlParameter('payment');
     var sessionId = getUrlParameter('session_id');
+    var email = getUrlParameter('email')
 
     if (paymentStatus === "success" && sessionId) {
         // You can further validate the session ID if needed

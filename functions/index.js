@@ -22,7 +22,7 @@ exports.createCheckoutSession = functions.https.onCall(async (data, context) => 
     }],
     customer_email: userEmail,
     mode: 'payment',
-    success_url: 'https://brokerlistnyc.com?payment=success&session_id={CHECKOUT_SESSION_ID}',
+    success_url: 'https://brokerlistnyc.com?payment=success&session_id={CHECKOUT_SESSION_ID}&email=' + encodeURIComponent(userEmail),
     cancel_url: 'https://brokerlistnyc.com',
   });
 

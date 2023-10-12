@@ -146,6 +146,7 @@ jQuery(document).ready(function ($) {
     var email = $('#emailInput').val();
     if (validateEmail(email)) {
       $('#emailModal').hide();
+      $('#spinner').show();
       // Initialize Firebase and call Cloud Function
       var functions = firebase.functions();
       var createCheckoutSession = functions.httpsCallable('createCheckoutSession');
@@ -153,7 +154,7 @@ jQuery(document).ready(function ($) {
       createCheckoutSession({ email: email })
   .then(function(result) {
     console.log(result)
-
+    $('#spinner').hide();
     // Redirect to Stripe Checkout using session ID received from Cloud Function
     var stripe = Stripe('pk_live_51O0FmtDhrn1JbalvsKHCX0QXFxMnTkLI3NfpbK19pdiN7FSghO5S1b3DMXqXeiSIA3TAo0un9htxlY6DxUvhiZGI00N0SNzcTs');
     stripe.redirectToCheckout({ sessionId: result.data.sessionId })

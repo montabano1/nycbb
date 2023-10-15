@@ -125,33 +125,37 @@ jQuery(document).ready(function ($) {
     time: 1000
   });
 
-  // custom code
-  $('#purchaseBtn').on('click', function() {
+  // custom code monte
+  var selectedPriceId;  // Global variable to store the selected priceId
+
+$('button[id^="purchaseBtn"]').on('click', function() {
+    selectedPriceId = $(this).data('priceid');  // Store the priceId when a button is clicked
     $('#emailModal').show();
-  });
+});
 
-  $('.close').on('click', function() {
+$('.close').on('click', function() {
     $('#emailModal').hide();
-  });
+});
 
-  function validateEmail(email) {
+function validateEmail(email) {
     var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(String(email).toLowerCase());
-  }
+}
 
-  $('#submitEmailBtn').on('click touchstart', function(e) {
-    e.stopPropagation(); // Prevent the event from propagating to parent elements
+$('#submitEmailBtn').on('click touchstart', function(e) {
+    e.stopPropagation();
 
-    console.log("Submit button clicked"); // Debugging statement
     var email = $('#emailInput').val();
     if (validateEmail(email)) {
-      $('#emailModal').hide();
-      $('#spinner').show();
-      // Initialize Firebase and call Cloud Function
-      var functions = firebase.functions();
-      var createCheckoutSession = functions.httpsCallable('createCheckoutSession');
+        $('#emailModal').hide();
+        $('#spinner').show();
 
-      createCheckoutSession({ email: email })
+        console.log("Fetched priceId:", selectedPriceId);  // Debugging statement
+
+        var functions = firebase.functions();
+        var createCheckoutSession = functions.httpsCallable('createCheckoutSession');
+
+        createCheckoutSession({ email: email, priceId: selectedPriceId })
   .then(function(result) {
     console.log(result)
     $('#spinner').hide();

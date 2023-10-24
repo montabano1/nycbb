@@ -615,7 +615,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin-bottom: 50px;
   text-align: center;
   border: 1px solid #e6e6e6;
-  height: 200px;
+  height: 280px;
   position: relative;
   background: #fafafa;
 }
@@ -1026,6 +1026,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   width: 70%; /* default to a wider modal for mobile devices */
   text-align: center;
   max-width: 500px; /* optional, to ensure modal isn't too wide on large screens */
+  align-items: center;
 }
 
 /* Style for the email input */
@@ -1067,10 +1068,19 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 }
 
+
+
 /* Ensure buttons have a proper touch area */
 button {
   padding: 12px 20px; /* adjust as necessary */
   cursor: pointer;
+}
+
+.button2 {
+  background-color: #2dc997;
+  color: white;
+  border-radius: 5px;
+  border-width: 0;
 }
 
 
@@ -1079,6 +1089,7 @@ button {
   float: right;
   font-size: 28px;
   font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .close:hover,
@@ -1115,4 +1126,28 @@ button {
 @keyframes spin {
     0% { transform: translate(-50%, -50%) rotate(0deg); }
     100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.monteItem1 {
+  width: 225px;
+  height: 225px;
+  margin-bottom: 50px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.monteItem1 img {
+    max-width: 100%; /* This ensures the image doesn't exceed the box's width */
+    height: auto; /* This will maintain the image's aspect ratio */
+    display: block; /* This removes any extra space below the image */
+    min-width: 100%;
+    padding: 20px;
+}
+
+.monteColumn1 {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }

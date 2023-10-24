@@ -193,8 +193,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #hero h2 {
-  color: #eee;
-  margin-bottom: 50px;
+  color: white;
+  margin-bottom: 10px;
   font-size: 24px;
 }
 
@@ -202,7 +202,7 @@ h1, h2, h3, h4, h5, h6 {
   #hero h2 {
     font-size: 18px;
     line-height: 24px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
   }
 }
 
@@ -216,7 +216,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 8px 28px;
   border-radius: 50px;
   transition: 0.5s;
-  margin: 10px;
+  margin: 30px;
   border: 2px solid #fff;
   color: #fff;
 }
@@ -615,7 +615,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin-bottom: 50px;
   text-align: center;
   border: 1px solid #e6e6e6;
-  height: 280px;
+  height: 340px;
   position: relative;
   background: #fafafa;
 }
@@ -661,7 +661,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #services .title {
   font-weight: 700;
-  font-size: 18px;
+  font-size: 24px;
   margin-bottom: 15px;
   text-transform: uppercase;
 }
@@ -671,8 +671,15 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #services .description {
-  font-size: 14px;
+  font-size: 18px;
   line-height: 24px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+#services .price {
+  font-weight: 600;
+  font-size: 40px;
 }
 
 /* Call To Action Section
@@ -1155,4 +1162,48 @@ button {
 .addme {
   display: flex;
   justify-content: center;
+}
+
+.montefeatures {
+    display: flex;
+    justify-content: center;
+    gap: 10px;  /* Adjust spacing between each feature and + sign */
+    margin: 10px;
+    color: white;
+}
+
+.montefeature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+}
+
+.montefeature i {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+  .montefeature i {
+      font-size: 14px;
+      margin-bottom: 5px;
+  }
+}
+
+.montefeature span {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+  .montefeature span {
+      font-size: 14px;
+      margin-bottom: 5px;
+  }
+}
+
+.plus {
+    align-self: center;  /* Vertically center the + sign */
+    font-size: 18px;  /* Adjust based on your preference */
 }

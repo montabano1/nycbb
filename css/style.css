@@ -1151,3 +1151,8 @@ button {
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
+
+.addme {
+  display: flex;
+  justify-content: center;
+}

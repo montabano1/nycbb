@@ -208,6 +208,7 @@ $('#submitEmailBtn').on('click touchstart', function(e) {
 
     $('#supportForm').submit(function(event) {
         event.preventDefault();
+        console.log($(this).serialize());
         $.ajax({
             url: 'https://us-central1-nycbb-f8a89.cloudfunctions.net/sendEmail',
             type: 'POST',

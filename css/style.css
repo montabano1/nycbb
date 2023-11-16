@@ -735,6 +735,12 @@ body.mobile-nav-active #mobile-nav-toggle {
   padding: 80px;
 }
 
+@media (max-width: 768px) {
+  #portfolio {
+    padding: 20px;
+  }
+}
+
 #portfolio #portfolio-wrapper {
   padding-right: 15px;
 }
@@ -1151,6 +1157,18 @@ button {
     display: block; /* This removes any extra space below the image */
     min-width: 100%;
     padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .monteItem1 {
+    width: 75px;
+    height: 75px;
+    margin-bottom: 20px;
+  }
+
+  .monteItem1 img {
+      padding: 10px;
+  }
 }
 
 .monteColumn1 {

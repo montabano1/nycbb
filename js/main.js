@@ -205,4 +205,26 @@ $('#submitEmailBtn').on('click touchstart', function(e) {
     $("#closeModalBtn").click(function() {
         $("#successModal").hide();
     });
+
+    $('#supportForm').submit(function(event) {
+        event.preventDefault();
+
+        $.ajax({
+            url: 'https://us-central1-nycbb-f8a89.cloudfunctions.net/sendEmail',
+            type: 'POST',
+            data: $(this).serialize(),
+            success: function(data) {
+                console.log('Email sent successfully');
+                $("#sendmessage").addClass("show");
+                $("#errormessage").removeClass("show");
+                $('.contactForm').find("input, textarea").val("");
+            },
+            error: function(error) {
+                console.error('Error sending email', error);
+                $("#sendmessage").removeClass("show");
+                $("#errormessage").addClass("show");
+                $('#errormessage').html("error");
+            }
+        });
+    });
 });

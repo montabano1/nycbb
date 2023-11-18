@@ -184,7 +184,9 @@ Hero Section
           <div class="box">
             <div class="icon"><a href=""><i class="fa fa-paper-plane"></i></a></div>
             <h4 class="title"><a href="">ONE TIME PURCHASE</a></h4>
-            <p class="description">Receive the list today</p>
+            <div class="description-container">
+              <p class="description">Receive the list today</p>
+            </div>
             <p class="price">$100</p>
             <button class="button2" id="purchaseBtn3" data-priceid="price_1O9whcDhrn1JbalvbPvjSAUI">Purchase</button>
           </div>
@@ -193,8 +195,10 @@ Hero Section
           <div class="box">
             <div class="icon"><a href=""><i class="fa fa-bar-chart"></i></a></div>
             <h4 class="title"><a href="">SEMI-ANNUAL UPDATE</a></h4>
+            <div class="description-container">
             <p class="description">Receive the list today + </p>
             <p class="description">An updated list in 6 months</p>
+          </div>
             <p class="price">$150</p>
             <button class="button2" id="purchaseBtn2" data-priceid="price_1O9wiKDhrn1JbalvQN811osK">Purchase</button>
           </div>
@@ -203,8 +207,10 @@ Hero Section
           <div class="box">
             <div class="icon"><a href=""><i class="fa fa-desktop"></i></a></div>
             <h4 class="title"><a href="">QUARTERLY UPDATES</a></h4>
+            <div class="description-container">
             <p class="description">Receive the list today + </p>
             <p class="description">Updated lists every 3 months (3 more updates)</p>
+          </div>
             <p class="price">$200</p>
             <button class="button2" id="purchaseBtn2" data-priceid="price_1O9wj5Dhrn1Jbalv04wJXJhr">Purchase</button>
           </div>
@@ -227,53 +233,7 @@ Hero Section
     projectId: "nycbb-f8a89",
   });
 
-  // Initialize Stripe
-  // const stripe = Stripe('pk_live_51JZQvwGLuZ2g1XvgGkZtNdDshUwSvbiWo9qzF3LjE8I926gpOQK7mICWamljRZ6CLdH5scJgE2evvUz7eyloHJy900SL3cSgtM');
-  //
-  // document.getElementById('purchase-button').addEventListener('click', async () => {
-  //   // Call your Cloud Function
-  //   const createCheckoutSession = firebase.functions().httpsCallable('createCheckoutSession');
-  //   const { data: { sessionId } } = await createCheckoutSession();
-  //
-  //   // Redirect to Checkout
-  //   await stripe.redirectToCheckout({ sessionId });
-  // });
-  //
-  // const urlParams = new URLSearchParams(window.location.search);
-  //   const paymentStatus = urlParams.get('payment');
-  //   const sessionId = urlParams.get('session_id');
-  //
-  //   // If payment status is 'success', verify the payment and provide the download link
-  //   if (paymentStatus === 'success' && sessionId) {
-  //     // Call your Cloud Function for payment validation
-  //     const verifyPaymentAndProvideDownloadLink = firebase.functions().httpsCallable('verifyPaymentAndProvideDownloadLink');
-  //     verifyPaymentAndProvideDownloadLink({ session_id: sessionId })
-  //       .then((result) => {
-  //         if (result.data.downloadLink) {
-  //           // Display popup message
-  //           // Display the notification
-  //           notification.classList.remove('hidden');
-  //
-  //           // Optionally: Hide notification after a few seconds
-  //           setTimeout(() => {
-  //             notification.classList.add('hidden');
-  //           }, 5000); // Adjust time as needed
-  //
-  //           // Automatically initiate file download
-  //           const link = document.createElement('a');
-  //           link.href = result.data.downloadLink;
-  //           link.download = 'spreadsheet-file-name'; // Specify the file name
-  //           link.click();
-  //         } else {
-  //           // Handle error, e.g., display error message
-  //           alert('Error initiating download. Please try again.');
-  //         }
-  //       })
-  //       .catch((error) => {
-  //         // Handle callable function error
-  //         console.error('Error calling function:', error);
-  //       });
-  //   }
+
   </script>
 
   <div id="notification" class="hidden notification">

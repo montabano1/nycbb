@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout Page</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f7f7f7;
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        background: #f7f7f7;
+        margin: 0;
+        padding: 0;
+    }
+    .plans-container {
+        max-width: 960px;
+        margin: 40px auto;
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+    }
+    .plan {
+        background: #fff;
+        padding: 20px;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width: 30%;
+    }
+    .plan input[type="radio"] {
+        display: none; /* Hide the default radio button */
+    }
+    .plan label {
+        display: block;
+        background: #f7f7f7;
+        padding: 10px;
+        border: 2px solid transparent;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .plan input[type="radio"]:checked + label {
+        border-color: #4CAF50; /* Highlight color for selected plan */
+        background: #e8f5e9;
+    }
+    .plan h3 {
+        margin-top: 0;
+    }
+    .plan-price {
+        color: #333;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .plan-details {
+        font-size: 14px;
+        color: #666;
+        line-height: 1.4;
+        margin: 15px 0;
+    }
+    .plan-checkmark {
+        color: #4CAF50;
+        font-size: 24px;
+        display: none; /* Hide by default */
+    }
+    .plan input[type="radio"]:checked + label .plan-checkmark {
+        display: inline; /* Show checkmark when selected */
+    }
+    .container {
+        width: 80%;
+        margin: 30px auto;
+        background: #fff;
+        padding: 15px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .section {
+        margin-bottom: 20px;
+    }
+    .section label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+    }
+    .section input[type="text"],
+    .section input[type="email"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    .section .half {
+        float: left;
+        width: 48%;
+        margin-right: 4%;
+    }
+    .section .half:last-child {
+        margin-right: 0;
+    }
+    .section:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    .btn {
+        background: #333;
+        color: #fff;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+  <div class="plans-container">
+      <!-- Plan 1 -->
+      <div class="plan">
+          <input type="radio" id="semi-annual" name="plan" />
+          <label for="semi-annual">
+              <h3>SEMI-ANNUAL UPDATES</h3>
+              <span class="plan-price">$150-$200 / update</span>
+              <div class="plan-details">
+                  Pricing varies by list<br>
+                  Update are provided every 6 months<br>
+                  Requires a minimum of 2 updates after initial purchase before cancelling<br>
+                  Total Commitment of $2100
+              </div>
+              <span class="plan-checkmark">&#10004;</span>
+          </label>
+      </div>
+      <!-- Plan 2 -->
+      <div class="plan">
+          <input type="radio" id="annual" name="plan" />
+          <label for="annual">
+              <h3>ANNUAL UPDATES</h3>
+              <span class="plan-price">$250 / update</span>
+              <div class="plan-details">
+                  Pricing varies by list<br>
+                  Update are provided every 12 months<br>
+                  Requires a minimum of 1 update after initial purchase before cancelling<br>
+                  Total Commitment of $1600
+              </div>
+              <span class="plan-checkmark">&#10004;</span>
+          </label>
+      </div>
+      <!-- Plan 3 -->
+      <div class="plan">
+          <input type="radio" id="one-time" name="plan" />
+          <label for="one-time">
+              <h3>ONE TIME PURCHASE</h3>
+              <span class="plan-price">$300</span>
+              <div class="plan-details">
+                  Pricing varies by list<br>
+                  No Updates
+              </div>
+              <span class="plan-checkmark">&#10004;</span>
+          </label>
+      </div>
+  </div>
+<div class="container">
+    <div class="section">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="email@example.com">
+    </div>
+    <div class="section">
+        <div class="half">
+            <label for="fname">Full Name</label>
+            <input type="text" id="fname" placeholder="Full Name">
+        </div>
+        <div class="half">
+            <label for="card-number">Card Number</label>
+            <!-- Placeholder for Stripe Elements -->
+            <div id="card-number" class="stripe-element"></div>
+        </div>
+        <div class="half">
+            <label for="address">Address</label>
+            <input type="text" id="address" placeholder="Address">
+        </div>
+        <div class="half">
+            <label for="city">City</label>
+            <input type="text" id="city" placeholder="City">
+        </div>
+        <div class="half">
+            <label for="state">State</label>
+            <input type="text" id="state" placeholder="State">
+        </div>
+        <div class="half">
+            <label for="zip">Zip Code</label>
+            <input type="text" id="zip" placeholder="Zip Code">
+        </div>
+        <div class="half">
+            <label for="expiry">Expiration Date</label>
+            <input type="text" id="expiry" placeholder="MM/YY">
+        </div>
+        <div class="half">
+            <label for="cvc">CVC</label>
+            <input type="text" id="cvc" placeholder="CVC">
+        </div>
+    </div>
+    <div class="section">
+        <button class="btn" type="submit">Submit Payment</button>
+    </div>
+</div>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+    // Additional JavaScript for Stripe and form handling would go here
+</script>
+
+</body>
+</html>

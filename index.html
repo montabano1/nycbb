@@ -77,7 +77,6 @@
           <li class="menu-active"><a href="#hero">Home</a></li>
           <li><a href="#about">About Us</a></li>
           <li><a href="#services">Products</a></li>
-          <li><a href="#portfolio">Agencies</a></li>
           <li><a href="#contact">Contact Us</a></li>
 
 </ul>
@@ -89,9 +88,14 @@
 Hero Section
 ============================-->
 <section id="hero">
+  <div class="video-background">
+  <video autoplay muted loop id="background-video">
+        <source src="img/landing.mov" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
   <div class="hero-container">
     <h1>BrokerList.ai</h1>
-    <h2>The smartest real estate broker database</h2>
+    <h2>The #1 Broker List of NYC Real Estate Agents</h2>
     <h2>Powered by AI</h2>
     <div class="montefeatures">
         <div class="montefeature">
@@ -116,6 +120,7 @@ Hero Section
     </div>
     <a href="#services" class="btn-get-started">Get Started</a>
   </div>
+</div>
 </section><!-- #hero -->
 
 <main id="main">
@@ -179,7 +184,7 @@ Hero Section
           <div class="box">
             <div class="icon"><a href=""><i class="fa fa-paper-plane"></i></a></div>
             <h4 class="title"><a href="">ONE TIME PURCHASE</a></h4>
-            <p class="description">No updates</p>
+            <p class="description">Receive the list today</p>
             <p class="price">$100</p>
             <button class="button2" id="purchaseBtn3" data-priceid="price_1O9whcDhrn1JbalvbPvjSAUI">Purchase</button>
           </div>
@@ -188,7 +193,8 @@ Hero Section
           <div class="box">
             <div class="icon"><a href=""><i class="fa fa-bar-chart"></i></a></div>
             <h4 class="title"><a href="">SEMI-ANNUAL UPDATE</a></h4>
-            <p class="description">1 more update sent in 6 months</p>
+            <p class="description">Receive the list today + </p>
+            <p class="description">An updated list in 6 months</p>
             <p class="price">$150</p>
             <button class="button2" id="purchaseBtn2" data-priceid="price_1O9wiKDhrn1JbalvQN811osK">Purchase</button>
           </div>
@@ -197,7 +203,8 @@ Hero Section
           <div class="box">
             <div class="icon"><a href=""><i class="fa fa-desktop"></i></a></div>
             <h4 class="title"><a href="">QUARTERLY UPDATES</a></h4>
-            <p class="description">3 more updates sent every 3 months.</p>
+            <p class="description">Receive the list today + </p>
+            <p class="description">Updated lists every 3 months (3 more updates)</p>
             <p class="price">$200</p>
             <button class="button2" id="purchaseBtn2" data-priceid="price_1O9wj5Dhrn1Jbalv04wJXJhr">Purchase</button>
           </div>
@@ -292,35 +299,47 @@ Hero Section
   ============================-->
   <section id="about">
     <div class="container">
+      <div class="section-header aboutTitle">
+        <h3 class="section-title">What do we offer</h3>
+      </div>
       <div class="row about-container">
-
         <div class="col-lg-6 content order-lg-1 order-2">
-          <h2 class="title">Few Words About Us</h2>
-          <p>
-            We have the most up-to-date database of real estate brokers from all of the top agencies
-          </p>
+
 
           <div class="icon-box wow fadeInUp">
-            <div class="icon"><i class="fa fa-shopping-bag"></i></div>
-            <h4 class="title"><a href="">Comprehensive</a></h4>
-            <p class="description">Provide access to over 17,000 real estate agents’ names, agencies, email addresses, phone numbers, and more.</p>
+            <div class="icon"><i class="fa fa-check-circle"></i></div>
+            <h4 class="title"><a href="">Accurate</a></h4>
+            <p class="description"> Powered by AI and curated by our team, BrokerList.Ai is updated monthly to provide the most up-to-date contact details ensuring minimal bounce backs.</p>
           </div>
 
           <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
-            <div class="icon"><i class="fa fa-thumbs-up"></i></div>
-            <h4 class="title"><a href="">Socials</a></h4>
-            <p class="description">The only list to provide both instagram and linkedin handles for deeper connections.</p>
-          </div>
-
-          <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
-            <div class="icon"><i class="fa fa-bar-chart"></i></div>
-            <h4 class="title"><a href="">Email Campaigns</a></h4>
-            <p class="description">Allow our list to be the foundation for your highly successful email marketing endeavors.</p>
+            <div class="icon"><i class="fa fa-shopping-bag"></i></div>
+            <h4 class="title"><a href="">Comprehensive</a></h4>
+            <p class="description">BrokerList.Ai is an extensive list of over 17,000 NYC real estate agents from 20+ top firms and boutique companies including Serhant, Compass, Elliman, Corcoran, Sotheby’s, Brown Harris Stevens, Reuveni and more.</p>
           </div>
 
         </div>
+        <div class="col-lg-6 content order-lg-1 order-2">
 
-        <div class="col-lg-6 background order-lg-2 order-1 wow fadeInRight"></div>
+          <div class="icon-box wow fadeInUp">
+            <div class="icon"><i class="fa fa-users"></i></div>
+            <h4 class="title"><a href="">Socials</a></h4>
+            <p class="description">The only list to provide Instagram and LinkedIn handles for deeper connections.</p>
+          </div>
+
+          <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
+            <div class="icon"><i class="fa fa-download"></i></div>
+            <h4 class="title"><a href="">Immediate Download</a></h4>
+            <p class="description">The list is emailed to you in csv and excel format for immediate use.</p>
+          </div>
+
+          <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
+            <div class="icon"><i class="fa fa-bullseye"></i></div>
+            <h4 class="title"><a href="">Targeted Campaigns</a></h4>
+            <p class="description">give yourself the edge of maximum exposure for your properties for sale, newsletters and products to all NYC Real Estate Agents.</p>
+          </div>
+
+        </div>
       </div>
 
     </div>
@@ -347,12 +366,12 @@ Hero Section
   <!--==========================
   Portfolio Section
   ============================-->
-  <section id="portfolio">
+  <!-- <section id="portfolio">
     <div class="container wow fadeInUp">
       <div class="section-header">
         <h3 class="section-title">Agencies</h3>
         <p class="section-description">We utilize various public data sources to provide the most complete profile available for every broker</p>
-      </div>
+      </div> -->
       <!-- <div class="row">
 
       <div class="col-lg-12">
@@ -366,7 +385,7 @@ Hero Section
   </div>
 </div> -->
 
-<div class="monteColumn1" id="portfolioMonte">
+<!-- <div class="monteColumn1" id="portfolioMonte">
   <div class="monteItem1">
     <a href="https://www.corcoran.com/real-estate-agents/search">
       <img src="img/portfolio/corcoran.png" alt="">
@@ -562,8 +581,8 @@ Hero Section
 
 </div>
 
-</div>
-</section><!-- #portfolio -->
+</div> -->
+<!-- </section> -->
 
 <!--==========================
 Team Section

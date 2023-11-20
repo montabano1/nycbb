@@ -1253,3 +1253,48 @@ button {
 .numberBottom {
   font-size: 18px;
 }
+
+.promoText {
+  font-family: "AR One Sans", sans-serif;
+font-size: 40px;
+font-weight: 700;
+color: white;
+align-self: center;
+margin: 0 10px;
+text-align: center;
+}
+
+.promotion {
+  margin-top: 100px;
+  min-height: 100px;
+  background-color: rgba(128, 36, 27, 1);
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .promoText {
+      font-size: 34px;
+  }
+}
+
+.price-container {
+  display: flex;
+}
+
+.price-container p {
+  margin: 0 0 0 30px
+}
+
+.crossedout {
+  text-decoration: line-through;
+  color: rgba(221, 221, 221, 1);
+}
+
+.promoSale {
+  color: red;
+  margin-bottom: 15px;
+}

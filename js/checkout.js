@@ -1,6 +1,43 @@
 $(document).ready(function() {
   const stripe = Stripe('pk_live_51O0FmtDhrn1JbalvsKHCX0QXFxMnTkLI3NfpbK19pdiN7FSghO5S1b3DMXqXeiSIA3TAo0un9htxlY6DxUvhiZGI00N0SNzcTs');
-  const elements = stripe.elements();
+  const options = {
+  mode: 'payment',
+  amount: 1099,
+  currency: 'usd',
+  // Customizable with appearance API.
+  appearance: {/*...*/},
+};
+
+// Set up Stripe.js and Elements to use in checkout form
+const elements = stripe.elements(options);
+  const expressCheckoutElement = elements.create('expressCheckout');
+expressCheckoutElement.mount('#express-checkout-element');
+
+//   initialize();
+//
+// async function initialize() {
+//   // Call the Firebase function
+//   const createCheckoutSession = firebase.functions().httpsCallable('testCreateCheckoutSession');
+//
+//   // Replace with your own data structure as required
+//   const data = {
+//     email: 'user@example.com', // User's email
+//     priceId: 'price_1O1G3PDhrn1Jbalvm7Eos7Fw' // Price ID for the Stripe session
+//   };
+//
+//   try {
+//     const result = await createCheckoutSession(data);
+//     const { clientSecret } = result.data;
+//
+//     const checkout = await stripe.initEmbeddedCheckout({
+//       clientSecret: clientSecret
+//     });
+//
+//     checkout.mount('#checkout');
+//   } catch (error) {
+//     console.error("Error creating checkout session: ", error);
+//   }
+// }
 
   const itemsData = {
     'one-time': {

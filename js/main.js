@@ -128,56 +128,79 @@ jQuery(document).ready(function ($) {
   // custom code monte
   var selectedPriceId;  // Global variable to store the selected priceId
 
-  // $('button[id^="purchaseBtn"]').on('click', function() {
-  //   selectedPriceId = $(this).data('priceid');  // Store the priceId when a button is clicked
-  //   $('#emailModal').show();
-  // });
-  //
-  // $('.close').on('click', function() {
-  //   $('#emailModal').hide();
-  // });
-  //
-  // function validateEmail(email) {
-  //   var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  //   return re.test(String(email).toLowerCase());
-  // }
-  //
-  // $('#submitEmailBtn').on('click touchstart', function(e) {
-  //   e.stopPropagation();
-  //
-  //   var email = $('#emailInput').val();
-  //   if (validateEmail(email)) {
-  //     $('#emailModal').hide();
-  //     $('#spinner').show();
-  //
-  //     console.log("Fetched priceId:", selectedPriceId);  // Debugging statement
-  //
-  //     var functions = firebase.functions();
-  //     var createCheckoutSession = functions.httpsCallable('createCheckoutSession');
-  //
-  //     createCheckoutSession({ email: email, priceId: selectedPriceId })
-  //     .then(function(result) {
-  //       console.log(result)
-  //       $('#spinner').hide();
-  //       // Redirect to Stripe Checkout using session ID received from Cloud Function
-  //       var stripe = Stripe('pk_live_51O0FmtDhrn1JbalvsKHCX0QXFxMnTkLI3NfpbK19pdiN7FSghO5S1b3DMXqXeiSIA3TAo0un9htxlY6DxUvhiZGI00N0SNzcTs');
-  //       stripe.redirectToCheckout({ sessionId: result.data.sessionId })
-  //       .then(function (result) {
-  //         if (result.error) {
-  //           alert(result.error.message);
-  //         }
-  //       })
-  //       .catch(function (error) {
-  //         console.error(error);
-  //       });
-  //     })
-  //     .catch(function(error) {
-  //       console.error('Error:', error);
-  //     });
-  //   } else {
-  //     alert('Please enter a valid email address.');
-  //   }
-  // });
+  $('button[id^="purchaseBtn"]').on('click', function() {
+    selectedPriceId = $(this).data('priceid');  // Store the priceId when a button is clicked
+    $('#spinner').show();
+
+    console.log("Fetched priceId:", selectedPriceId);  // Debugging statement
+
+    var functions = firebase.functions();
+    var createCheckoutSession = functions.httpsCallable('createCheckoutSession');
+
+    createCheckoutSession({ priceId: selectedPriceId })
+    .then(function(result) {
+      console.log(result)
+      $('#spinner').hide();
+      // Redirect to Stripe Checkout using session ID received from Cloud Function
+      var stripe = Stripe('pk_live_51O0FmtDhrn1JbalvsKHCX0QXFxMnTkLI3NfpbK19pdiN7FSghO5S1b3DMXqXeiSIA3TAo0un9htxlY6DxUvhiZGI00N0SNzcTs');
+      stripe.redirectToCheckout({ sessionId: result.data.sessionId })
+      .then(function (result) {
+        if (result.error) {
+          alert(result.error.message);
+        }
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+    })
+    .catch(function(error) {
+      console.error('Error:', error);
+    });
+  });
+
+
+
+  function validateEmail(email) {
+    var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+  }
+
+  $('#submitEmailBtn').on('click touchstart', function(e) {
+    e.stopPropagation();
+
+    var email = $('#emailInput').val();
+    if (validateEmail(email)) {
+      $('#emailModal').hide();
+      $('#spinner').show();
+
+      console.log("Fetched priceId:", selectedPriceId);  // Debugging statement
+
+      var functions = firebase.functions();
+      var createCheckoutSession = functions.httpsCallable('createCheckoutSession');
+
+      createCheckoutSession({ email: email, priceId: selectedPriceId })
+      .then(function(result) {
+        console.log(result)
+        $('#spinner').hide();
+        // Redirect to Stripe Checkout using session ID received from Cloud Function
+        var stripe = Stripe('pk_live_51O0FmtDhrn1JbalvsKHCX0QXFxMnTkLI3NfpbK19pdiN7FSghO5S1b3DMXqXeiSIA3TAo0un9htxlY6DxUvhiZGI00N0SNzcTs');
+        stripe.redirectToCheckout({ sessionId: result.data.sessionId })
+        .then(function (result) {
+          if (result.error) {
+            alert(result.error.message);
+          }
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+      })
+      .catch(function(error) {
+        console.error('Error:', error);
+      });
+    } else {
+      alert('Please enter a valid email address.');
+    }
+  });
 
   function getUrlParameter(name) {
     var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.search);
@@ -187,14 +210,13 @@ jQuery(document).ready(function ($) {
   // Check URL parameters
   var paymentStatus = getUrlParameter('payment');
   var sessionId = getUrlParameter('session_id');
-  var email = getUrlParameter('email')
 
   if (paymentStatus === "success" && sessionId) {
     // You can further validate the session ID if needed
     // For this example, we'll just check its existence
 
     // Set the success message
-    var message = "Successful checkout. An email with the attached spreadsheet has been sent to " + email;
+    var message = "Successful checkout! An email with the attached spreadsheet will be sent shortly";
     $("#successMessage").text(message);
 
     // Display the modal

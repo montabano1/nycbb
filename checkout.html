@@ -378,7 +378,7 @@ body {
 </style>
 </head>
 <body>
-  <div id="success-message" style="display: none;">
+  <!-- <div id="success-message" style="display: none;">
     <div class="checkmark-icon">&#10004;</div>
     <h2>Payment Successful!</h2>
     <p>Thank you for your purchase! We will send you an email confirmation shortly.</p>
@@ -507,8 +507,13 @@ body {
 
 
   </div>
-  <button class="close-btn" onclick="window.location.href='/'">X</button>
-
+  <button class="close-btn" onclick="window.location.href='/'">X</button> -->
+  <div id="express-checkout-element">
+  <!-- Express Checkout Element will be inserted here -->
+</div>
+<div id="error-message">
+  <!-- Display error message to your customers here -->
+</div>
   <script>
   // Initialize Firebase
   firebase.initializeApp({

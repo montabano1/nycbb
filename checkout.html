@@ -1,217 +1,533 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Checkout Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout Page</title>
+  <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyAGAHFgzpsHkTsLirPMgF7MntX_mS_oTKY",
+    authDomain: "nycbb-f8a89.firebaseapp.com",
+    projectId: "nycbb-f8a89",
+    storageBucket: "nycbb-f8a89.appspot.com",
+    messagingSenderId: "962600952628",
+    appId: "1:962600952628:web:6492bc049a1f638eb63b61",
+    measurementId: "G-16WYHEBQF1"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-functions.js"></script>
+
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background: #f7f7f7;
-        margin: 0;
-        padding: 0;
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  margin: 0;
+  padding: 0;
+}
+.plans-container {
+  margin: 40px auto;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.plan {
+  background: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 30%;
+  margin: 0 20px;
+}
+.plan input[type="radio"] {
+  display: none; /* Hide the default radio button */
+}
+.plan label {
+  display: block;
+  background: #f7f7f7;
+  padding: 10px;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 200px;
+}
+.plan input[type="radio"]:checked + label {
+  border-color: #4CAF50; /* Highlight color for selected plan */
+  background: #e8f5e9;
+}
+.plan h3 {
+  margin-top: 0;
+}
+.plan-price {
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+}
+.plan-details {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.4;
+  margin: 15px 0;
+}
+.plan-checkmark {
+  color: #4CAF50;
+  font-size: 24px;
+  display: none; /* Hide by default */
+}
+.plan input[type="radio"]:checked + label .plan-checkmark {
+  display: inline; /* Show checkmark when selected */
+}
+.container {
+  width: 80%;
+  margin: 10px auto;
+  background: #fff;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.section {
+  margin-bottom: 20px;
+  width: 40%;
+}
+.section label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.email-description {
+  margin-bottom: 20px;
+  display: block;
+  margin: 0 0 5px 10px;
+  font-weight: normal;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.section input[type="text"],
+.section input[type="email"] {
+  width: 94%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccd0d5;
+  border-radius: 4px;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+.section .half {
+  float: left;
+  width: 100%;
+  margin-right: 4%;
+}
+
+.section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.btn {
+  background: #333;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 30px;
+}
+
+.stripe-element {
+  background: white;
+  padding: 10px 14px;
+  border: 1px solid #ccd0d5;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  margin-bottom: 10px;
+}
+
+.stripe-element:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.stripe-element.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.stripe-element.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+.error-message {
+  color: #fa755a;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.spinner-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 9999;
+}
+
+.spinner {
+  border: 12px solid #f3f3f3;
+  border-top: 12px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#success-message {
+  text-align: center;
+  background-color: #f4f4f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  margin: 40px auto;
+}
+
+.checkmark-icon {
+  color: #4CAF50;
+  font-size: 50px;
+}
+
+#success-message h2 {
+  color: #333;
+  margin-top: 10px;
+}
+
+#success-message p {
+  color: #666;
+  font-size: 16px;
+}
+
+.banner {
+  width: 100%;
+  background-color: rgba(45, 201, 151, 1);
+  font-size: 30px;
+  color: white;
+  font-family: "AR One Sans", sans-serif;
+  text-align: center;
+}
+
+.price-container {
+  display: flex;
+  justify-content: center;
+}
+
+.price-container span {
+  margin: 10px;
+}
+
+.crossedout {
+  text-decoration: line-through;
+  color: rgba(221, 221, 221, 1);
+}
+
+.email-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.monte {
+  width: 40%;
+    align-self: center;
+    border-width: 5px;
+    border-color: black;
+    border-style: double;
+    padding: 20px;
+}
+
+.purchase-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.monteImage {
+  width: -webkit-fill-available;
+}
+
+.montePrice {
+  font-family: "AR One Sans", sans-serif;
+  text-align: center;
+  font-size: 50px;
+}
+
+.monteDescription {
+  font-family: "AR One Sans", sans-serif;
+  text-align: center;
+  font-size: 30px;
+}
+
+.selectPlan {
+  font-family: "AR One Sans", sans-serif;
+  font-size: 30px;
+  margin-top: 30px;
+  position: relative;
+  left: 10%;
+}
+
+.container2 {
+        padding: 30px;
     }
-    body {
-        font-family: Arial, sans-serif;
-        background: #f7f7f7;
-        margin: 0;
-        padding: 0;
+    .checkbox-section {
+        margin: 20px 0;
     }
-    .plans-container {
-        max-width: 960px;
-        margin: 40px auto;
-        display: flex;
-        justify-content: space-between;
-        text-align: center;
-    }
-    .plan {
-        background: #fff;
-        padding: 20px;
-        border-radius: 4px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        width: 30%;
-    }
-    .plan input[type="radio"] {
-        display: none; /* Hide the default radio button */
-    }
-    .plan label {
-        display: block;
-        background: #f7f7f7;
-        padding: 10px;
-        border: 2px solid transparent;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-    .plan input[type="radio"]:checked + label {
-        border-color: #4CAF50; /* Highlight color for selected plan */
-        background: #e8f5e9;
-    }
-    .plan h3 {
-        margin-top: 0;
-    }
-    .plan-price {
-        color: #333;
-        font-size: 24px;
-        font-weight: bold;
-    }
-    .plan-details {
+    .checkbox-label {
         font-size: 14px;
-        color: #666;
-        line-height: 1.4;
-        margin: 15px 0;
+        color: #333;
     }
-    .plan-checkmark {
-        color: #4CAF50;
-        font-size: 24px;
-        display: none; /* Hide by default */
-    }
-    .plan input[type="radio"]:checked + label .plan-checkmark {
-        display: inline; /* Show checkmark when selected */
-    }
-    .container {
-        width: 80%;
-        margin: 30px auto;
-        background: #fff;
-        padding: 15px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    .section {
-        margin-bottom: 20px;
-    }
-    .section label {
-        font-weight: bold;
-        display: block;
-        margin-bottom: 5px;
-    }
-    .section input[type="text"],
-    .section input[type="email"] {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 10px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-    }
-    .section .half {
-        float: left;
-        width: 48%;
-        margin-right: 4%;
-    }
-    .section .half:last-child {
-        margin-right: 0;
-    }
-    .section:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-    .btn {
-        background: #333;
-        color: #fff;
-        padding: 10px 20px;
+    .submit-btn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 15px 32px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
         border: none;
         border-radius: 4px;
+    }
+    .submit-btn:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
+
+    @media (max-width: 768px) {
+      .plans-container {
+          flex-direction: column;
+      }
+
+      .plan {
+        width: auto;
+      }
+
+      .plan label {
+        height: 200px;
+      }
+
+      .section {
+        width: 100%;
+      }
+
+      .monte {
+        width: 80%;
+      }
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 5px;
+        right: 30px;
+        background-color: rgba(45, 201, 151, 1);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
         cursor: pointer;
     }
+
+    /* Ensure the button is always visible and on top of other elements */
+    .close-btn:focus {
+        outline: none;
+    }
+
+    .close-btn:hover {
+        background-color: #d32f2f;
+    }
+
 </style>
 </head>
 <body>
-  <div class="plans-container">
-      <!-- Plan 1 -->
-      <div class="plan">
-          <input type="radio" id="semi-annual" name="plan" />
-          <label for="semi-annual">
-              <h3>SEMI-ANNUAL UPDATES</h3>
-              <span class="plan-price">$150-$200 / update</span>
-              <div class="plan-details">
-                  Pricing varies by list<br>
-                  Update are provided every 6 months<br>
-                  Requires a minimum of 2 updates after initial purchase before cancelling<br>
-                  Total Commitment of $2100
-              </div>
-              <span class="plan-checkmark">&#10004;</span>
-          </label>
-      </div>
-      <!-- Plan 2 -->
-      <div class="plan">
-          <input type="radio" id="annual" name="plan" />
-          <label for="annual">
-              <h3>ANNUAL UPDATES</h3>
-              <span class="plan-price">$250 / update</span>
-              <div class="plan-details">
-                  Pricing varies by list<br>
-                  Update are provided every 12 months<br>
-                  Requires a minimum of 1 update after initial purchase before cancelling<br>
-                  Total Commitment of $1600
-              </div>
-              <span class="plan-checkmark">&#10004;</span>
-          </label>
-      </div>
-      <!-- Plan 3 -->
-      <div class="plan">
-          <input type="radio" id="one-time" name="plan" />
-          <label for="one-time">
-              <h3>ONE TIME PURCHASE</h3>
-              <span class="plan-price">$300</span>
-              <div class="plan-details">
-                  Pricing varies by list<br>
-                  No Updates
-              </div>
-              <span class="plan-checkmark">&#10004;</span>
-          </label>
-      </div>
+  <div id="success-message" style="display: none;">
+    <div class="checkmark-icon">&#10004;</div>
+    <h2>Payment Successful!</h2>
+    <p>Thank you for your purchase! We will send you an email confirmation shortly.</p>
   </div>
-<div class="container">
-    <div class="section">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" placeholder="email@example.com">
+  <div id="preContainer">
+    <div class="banner">CHECKOUT</div>
+
+    <div class="selectPlan">Select your list</div>
+    <div class="plans-container container">
+      <div class="plan">
+        <input type="radio" selected id="one-time" name="plan" data-price="$175" data-priceid="price_1O1DPiDhrn1JbalvH4pSHcSN" />
+        <label for="one-time">
+          <h3>ONE-TIME PURCHASE</h3>
+          <div class="price-container">
+            <span class="price crossedout plan-price">$250</span><span class="price plan-price">$175</span>
+          </div>
+          <div class="plan-details">
+            Receive your list today
+          </div>
+          <span class="plan-checkmark">&#10004;</span>
+        </label>
+      </div>
+      <div class="plan">
+        <input type="radio" id="semi-annual" name="plan" data-price="$240" data-priceid="price_1O1DPiDhrn1JbalvH4pSHcSN" />
+        <label for="semi-annual">
+          <h3>SEMI-ANNUAL UPDATE</h3>
+          <div class="price-container">
+            <span class="price crossedout plan-price">$400</span><span class="price plan-price">$240</span>
+          </div>
+          <div class="plan-details">
+            Receive the list today + <br>
+            An updated list in 6 months
+          </div>
+          <span class="plan-checkmark">&#10004;</span>
+        </label>
+      </div>
+      <div class="plan">
+        <input type="radio" id="quarterly" name="plan" data-price="$350" data-priceid="price_1O1G3PDhrn1Jbalvm7Eos7Fw" />
+        <label for="quarterly">
+          <h3>QUARTERLY UPDATES</h3>
+          <div class="price-container">
+            <span class="price crossedout plan-price">$700</span><span class="price plan-price">$350</span>
+          </div>
+          <div class="plan-details">
+            Receive the list today + <br>
+            Updated lists every 3 months (3 more updates)
+          </div>
+          <span class="plan-checkmark">&#10004;</span>
+        </label>
+      </div>
+
     </div>
-    <div class="section">
+    <div class="selectPlan">Enter Details</div>
+    <div class="container">
+      <div class="purchase-info">
+      <div class="section">
         <div class="half">
-            <label for="fname">Full Name</label>
-            <input type="text" id="fname" placeholder="Full Name">
+          <div class="email-container">
+            <label for="email">Email</label>
+            <div class="email-description">(This is where your list will be sent)</div>
+          </div>
+
+          <input type="email" id="email" placeholder="email@example.com">
+          <div id="email-error" class="error-message"></div>
         </div>
         <div class="half">
-            <label for="card-number">Card Number</label>
-            <!-- Placeholder for Stripe Elements -->
-            <div id="card-number" class="stripe-element"></div>
+          <label for="fname">Full Name</label>
+          <input type="text" id="fname" placeholder="Full Name">
+          <div id="fname-error" class="error-message"></div>
         </div>
         <div class="half">
-            <label for="address">Address</label>
-            <input type="text" id="address" placeholder="Address">
+          <label for="address">Address</label>
+          <input type="text" id="address" placeholder="Address">
+          <div id="address-error" class="error-message"></div>
         </div>
         <div class="half">
-            <label for="city">City</label>
-            <input type="text" id="city" placeholder="City">
+          <label for="city">City</label>
+          <input type="text" id="city" placeholder="City">
         </div>
         <div class="half">
-            <label for="state">State</label>
-            <input type="text" id="state" placeholder="State">
+          <label for="state">State</label>
+          <input type="text" id="state" placeholder="State">
         </div>
         <div class="half">
-            <label for="zip">Zip Code</label>
-            <input type="text" id="zip" placeholder="Zip Code">
+          <label for="zip">Zip Code</label>
+          <input type="text" id="zip" placeholder="Zip Code">
         </div>
         <div class="half">
-            <label for="expiry">Expiration Date</label>
-            <input type="text" id="expiry" placeholder="MM/YY">
+          <label for="cardNumber">Card Number</label>
+          <div id="cardNumber" class="stripe-element"></div>
         </div>
         <div class="half">
-            <label for="cvc">CVC</label>
-            <input type="text" id="cvc" placeholder="CVC">
+          <label for="cardExpiry">Expiration Date</label>
+          <div id="cardExpiry" class="stripe-element"></div>
         </div>
+        <div class="half">
+          <label for="cardCvc">CVC</label>
+          <div id="cardCvc" class="stripe-element"></div>
+        </div>
+      </div>
+      <div class="monte" id="monte">
+        <img class="monteImage">
+      </img>
+      <div class="montePrice">
+      </div>
+      <div class="monteDescription">
+      </div>
+      </div>
     </div>
-    <div class="section">
-        <button class="btn" type="submit">Submit Payment</button>
-    </div>
+    <div class="container2">
+    <form id="payment-form">
+        <div class="info-text">
+            These lists are exclusively accessible to individual agents in the real estate sector.
+            It is designed to be a personal resource and, as such, may not be transferred.
+            Redistribution, sale, or sharing of this listing with peers or any third party is strictly prohibited.
+        </div>
+
+        <div class="checkbox-section">
+            <input type="checkbox" id="terms-checkbox">
+            <label for="terms-checkbox" class="checkbox-label">I agree with these terms and to be charged the shown amount</label>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn" disabled>COMPLETE PURCHASE</button>
+    </form>
 </div>
 
-<script src="https://js.stripe.com/v3/"></script>
-<script>
-    // Additional JavaScript for Stripe and form handling would go here
+
+  </div>
+  <button class="close-btn" onclick="window.location.href='/'">X</button>
+
+  <script>
+  // Initialize Firebase
+  firebase.initializeApp({
+    apiKey: "AIzaSyAGAHFgzpsHkTsLirPMgF7MntX_mS_oTKY",
+    authDomain: "nycbb-f8a89.firebaseapp.com",
+    projectId: "nycbb-f8a89",
+  });
+
+
 </script>
+
+<!-- Include jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Include Stripe.js -->
+<script src="https://js.stripe.com/v3/"></script>
+
+<!-- Your Custom Checkout Script -->
+<script src="js/checkout.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,185 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  margin: 0;
+  padding: 0;
+}
+.plans-container {
+  max-width: 960px;
+  margin: 40px auto;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+.plan {
+  background: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 30%;
+}
+.plan input[type="radio"] {
+  display: none; /* Hide the default radio button */
+}
+.plan label {
+  display: block;
+  background: #f7f7f7;
+  padding: 10px;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.plan input[type="radio"]:checked + label {
+  border-color: #4CAF50; /* Highlight color for selected plan */
+  background: #e8f5e9;
+}
+.plan h3 {
+  margin-top: 0;
+}
+.plan-price {
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+}
+.plan-details {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.4;
+  margin: 15px 0;
+}
+.plan-checkmark {
+  color: #4CAF50;
+  font-size: 24px;
+  display: none; /* Hide by default */
+}
+.plan input[type="radio"]:checked + label .plan-checkmark {
+  display: inline; /* Show checkmark when selected */
+}
+.container {
+  width: 80%;
+  margin: 30px auto;
+  background: #fff;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.section {
+  margin-bottom: 20px;
+}
+.section label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+.section input[type="text"],
+.section input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.section .half {
+  float: left;
+  width: 48%;
+  margin-right: 4%;
+}
+
+.section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.btn {
+  background: #333;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.stripe-element {
+  background: white;
+  padding: 10px 14px;
+  border: 1px solid #ccd0d5;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.stripe-element:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.stripe-element.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.stripe-element.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+.error-message {
+  color: #fa755a;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.spinner-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 9999;
+}
+
+.spinner {
+  border: 12px solid #f3f3f3;
+  border-top: 12px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#success-message {
+  text-align: center;
+  background-color: #f4f4f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  margin: 40px auto;
+}
+
+.checkmark-icon {
+  color: #4CAF50;
+  font-size: 50px;
+}
+
+#success-message h2 {
+  color: #333;
+  margin-top: 10px;
+}
+
+#success-message p {
+  color: #666;
+  font-size: 16px;
+}

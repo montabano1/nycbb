@@ -1265,14 +1265,12 @@ text-align: center;
 }
 
 .promotion {
-  margin-top: 100px;
   min-height: 100px;
   background-color: rgba(128, 36, 27, 1);
   display: flex;
   justify-content: center;
-  position: absolute;
-  top: 0;
   width: 100%;
+  align-items: center;
 }
 
 @media (max-width: 768px) {

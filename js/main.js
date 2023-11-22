@@ -129,7 +129,8 @@ jQuery(document).ready(function ($) {
   var selectedPriceId;  // Global variable to store the selected priceId
 
   $('button[id^="purchaseBtn"]').on('click', function() {
-    selectedPriceId = $(this).data('priceid');  // Store the priceId when a button is clicked
+    selectedPriceId = $(this).data('priceid');
+    selectedCoupon = $(this).data('coupon');  // Store the priceId when a button is clicked
     $('#spinner').show();
 
     console.log("Fetched priceId:", selectedPriceId);  // Debugging statement
@@ -137,7 +138,7 @@ jQuery(document).ready(function ($) {
     var functions = firebase.functions();
     var createCheckoutSession = functions.httpsCallable('createCheckoutSession');
 
-    createCheckoutSession({ priceId: selectedPriceId })
+    createCheckoutSession({ priceId: selectedPriceId, coupon: selectedCoupon })
     .then(function(result) {
       console.log(result)
       $('#spinner').hide();
@@ -165,42 +166,42 @@ jQuery(document).ready(function ($) {
     return re.test(String(email).toLowerCase());
   }
 
-  $('#submitEmailBtn').on('click touchstart', function(e) {
-    e.stopPropagation();
-
-    var email = $('#emailInput').val();
-    if (validateEmail(email)) {
-      $('#emailModal').hide();
-      $('#spinner').show();
-
-      console.log("Fetched priceId:", selectedPriceId);  // Debugging statement
-
-      var functions = firebase.functions();
-      var createCheckoutSession = functions.httpsCallable('createCheckoutSession');
-
-      createCheckoutSession({ email: email, priceId: selectedPriceId })
-      .then(function(result) {
-        console.log(result)
-        $('#spinner').hide();
-        // Redirect to Stripe Checkout using session ID received from Cloud Function
-        var stripe = Stripe('pk_live_51O0FmtDhrn1JbalvsKHCX0QXFxMnTkLI3NfpbK19pdiN7FSghO5S1b3DMXqXeiSIA3TAo0un9htxlY6DxUvhiZGI00N0SNzcTs');
-        stripe.redirectToCheckout({ sessionId: result.data.sessionId })
-        .then(function (result) {
-          if (result.error) {
-            alert(result.error.message);
-          }
-        })
-        .catch(function (error) {
-          console.error(error);
-        });
-      })
-      .catch(function(error) {
-        console.error('Error:', error);
-      });
-    } else {
-      alert('Please enter a valid email address.');
-    }
-  });
+  // $('#submitEmailBtn').on('click touchstart', function(e) {
+  //   e.stopPropagation();
+  //
+  //   var email = $('#emailInput').val();
+  //   if (validateEmail(email)) {
+  //     $('#emailModal').hide();
+  //     $('#spinner').show();
+  //
+  //     console.log("Fetched priceId:", selectedPriceId);  // Debugging statement
+  //
+  //     var functions = firebase.functions();
+  //     var createCheckoutSession = functions.httpsCallable('createCheckoutSession');
+  //
+  //     createCheckoutSession({ email: email, priceId: selectedPriceId })
+  //     .then(function(result) {
+  //       console.log(result)
+  //       $('#spinner').hide();
+  //       // Redirect to Stripe Checkout using session ID received from Cloud Function
+  //       var stripe = Stripe('pk_live_51O0FmtDhrn1JbalvsKHCX0QXFxMnTkLI3NfpbK19pdiN7FSghO5S1b3DMXqXeiSIA3TAo0un9htxlY6DxUvhiZGI00N0SNzcTs');
+  //       stripe.redirectToCheckout({ sessionId: result.data.sessionId })
+  //       .then(function (result) {
+  //         if (result.error) {
+  //           alert(result.error.message);
+  //         }
+  //       })
+  //       .catch(function (error) {
+  //         console.error(error);
+  //       });
+  //     })
+  //     .catch(function(error) {
+  //       console.error('Error:', error);
+  //     });
+  //   } else {
+  //     alert('Please enter a valid email address.');
+  //   }
+  // });
 
   function getUrlParameter(name) {
     var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.search);
@@ -212,15 +213,9 @@ jQuery(document).ready(function ($) {
   var sessionId = getUrlParameter('session_id');
 
   if (paymentStatus === "success" && sessionId) {
-    // You can further validate the session ID if needed
-    // For this example, we'll just check its existence
-
-    // Set the success message
-    var message = "Successful checkout! An email with the attached spreadsheet will be sent shortly";
-    $("#successMessage").text(message);
-
-    // Display the modal
-    $("#successModal").show();
+    var message = "Successful checkout! You'll receive an email with the broker list shortly.";
+    $("#successMessage").html('<span class="success-icon">&#10003;</span><br>' + message);
+    $("#successModal").fadeIn();
   }
 
   // Close modal on button click

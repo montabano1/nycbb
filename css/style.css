@@ -1281,10 +1281,11 @@ text-align: center;
 
 .price-container {
   display: flex;
+  justify-content: center;
 }
 
 .price-container p {
-  margin: 0 0 0 30px
+  margin: 0 0 0 0px
 }
 
 .crossedout {

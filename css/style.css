@@ -691,7 +691,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #services .description-container {
-  min-height: 100px;
+  min-height: 75px;
   margin-bottom: 10px;
 }
 
@@ -704,6 +704,30 @@ body.mobile-nav-active #mobile-nav-toggle {
 #services .price {
   font-weight: 600;
   font-size: 40px;
+}
+
+#services .add-on {
+  display: flex;
+  align-items: baseline;
+  margin-top: 10px; /* Adjust as needed */
+  justify-content: center;
+}
+
+#services .nycCheckbox {
+  margin-right: 10px; /* Adjust as needed */
+}
+
+#services .checkbox-label {
+  font-size: 16px; /* Adjust to match your design */
+  color: #111; /* Adjust to match your design */
+}
+
+.button2 {
+  background-color: #2dc997;
+  color: white;
+  border-radius: 5px;
+  border-width: 0;
+  margin-top: 20px;
 }
 
 /* Call To Action Section
@@ -1113,12 +1137,7 @@ button {
   cursor: pointer;
 }
 
-.button2 {
-  background-color: #2dc997;
-  color: white;
-  border-radius: 5px;
-  border-width: 0;
-}
+
 
 
 .close {

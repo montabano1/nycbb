@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>BrokerList.ai</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="keywords" content="NYC real estate, Broker database, Real estate contacts, NYC brokers, Property agents NYC, LinkedIn profiles, Instagram profiles, Affordable broker list, Comprehensive broker contacts, NYC property database">
+  <meta content="The most affordable Connecticut real estate broker database with comprehensive social media links." name="description">
+
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=AR+One+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyAGAHFgzpsHkTsLirPMgF7MntX_mS_oTKY",
+      authDomain: "nycbb-f8a89.firebaseapp.com",
+      projectId: "nycbb-f8a89",
+      storageBucket: "nycbb-f8a89.appspot.com",
+      messagingSenderId: "962600952628",
+      appId: "1:962600952628:web:6492bc049a1f638eb63b61",
+      measurementId: "G-16WYHEBQF1"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-functions.js"></script>
+  <script src="https://js.stripe.com/v3/"></script>
+
+  <!-- =======================================================
+  Theme Name: Regna
+  Theme URL: https://bootstrapmade.com/regna-bootstrap-onepage-template/
+  Author: BootstrapMade.com
+  License: https://bootstrapmade.com/license/
+  ======================================================= -->
+</head>
+
+<body>
+
+  <!--==========================
+  Header
+  ============================-->
+  <header id="header">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <!-- Uncomment below if you prefer to use a text logo -->
+        <h1><a class="logoMonte" href="#hero">BrokerList.ai</a></h1>
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="#hero">Home</a></li>
+          <li><a href="./index.html">Cities</a></li>
+          <li><a href="#services">Products</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- #header -->
+
+  <!--==========================
+  Hero Section
+  ============================-->
+  <section id="hero">
+    <div class="video-background">
+      <video autoplay muted loop id="background-video">
+
+        <source src="img/landingCT.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="hero-container">
+          <!-- <a href="#services" class="promoText promotion">
+          BLACK FRIDAY SALE ENDS TODAY: UP TO 50% OFF!</a> -->
+          <h1>BrokerList.ai - CT</h1>
+          <h2>Connecticut's #1 Broker List of Real Estate Agents</h2>
+          <h2>Powered by AI</h2>
+          <div class="montefeatures">
+            <div class="montefeature">
+              <i class="fa fa-user"></i>
+              <span>Names</span>
+            </div>
+            <span class="plus">+</span>
+            <div class="montefeature">
+              <i class="fa fa-building"></i>
+              <span>Agencies</span>
+            </div>
+            <span class="plus">+</span>
+            <div class="montefeature">
+              <i class="fa fa-envelope"></i>
+              <span>Emails</span>
+            </div>
+            <span class="plus">+</span>
+            <div class="montefeature">
+              <i class="fa fa-thumbs-up"></i>
+              <span>Socials</span>
+            </div>
+          </div>
+          <a href="#services" class="btn-get-started">Get Started</a>
+        </div>
+      </div>
+    </section><!-- #hero -->
+
+    <main id="main">
+
+
+      <!--==========================
+      Facts Section
+      ============================-->
+      <section id="facts">
+        <div class="container wow fadeIn">
+          <div class="section-header">
+            <h3 class="section-title">The Complete and Accurate List of CT Brokers</h3>
+          </div>
+          <div class="row counters">
+
+            <div class="col-lg-3 col-6 text-center">
+              <div class="addme">
+                <span data-toggle="counter-up">13000</span>
+                <span>+</<span>
+                </div>
+                <p>Brokers</p>
+              </div>
+
+              <div class="col-lg-3 col-6 text-center">
+                <div class="addme">
+                  <span data-toggle="counter-up">10000</span>
+                  <span>+</<span>
+                  </div>
+                  <p>Social Handles</p>
+                </div>
+
+                <div class="col-lg-3 col-6 text-center">
+                  <div class="addme">
+                    <span data-toggle="counter-up">30</span>
+                    <span>+</<span>
+                    </div>
+                    <p>Brokerage Agencies</p>
+                  </div>
+
+                  <!-- <div class="col-lg-3 col-6 text-center">
+                  <span data-toggle="counter-up">5</span>
+                  <p>NYC Boroughs</p>
+                </div> -->
+
+              </div>
+
+            </div>
+          </section><!-- #facts -->
+
+          <!--==========================
+          Services Section
+          ============================-->
+          <section id="services">
+            <div class="container wow fadeIn">
+              <div class="section-header">
+                <h3 class="section-title">Select Your Plan</h3>
+                <p class="section-description">Select the option that best fits your needs</p>
+              </div>
+              <div class="row">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+                  <div class="box">
+                    <div class="icon"><a href=""><i class="fa fa-paper-plane"></i></a></div>
+                    <h4 class="title"><a href="">ONE TIME PURCHASE</a></h4>
+                    <div class="description-container">
+                      <p class="description">Receive the list today</p>
+                    </div>
+                    <div class="price-container">
+                      <!-- <p class="price crossedout">$250</p> -->
+                      <p class="price">$250</p>
+                    </div>
+                    <div class="add-on">
+                      <input type="checkbox" name="nycList" class="nycCheckbox" data-priceid="price_1OIwHVDhrn1JbalvMnd4ie1C"/>
+                      <label for="nycListCheckbox" class="checkbox-label">Add the NYC list for $100 extra</label>
+                    </div>
+                    <!-- <span class="promoSale">30% off CODE: BLACK1</span> -->
+                    <button class="button2" id="purchaseBtn3" data-priceid="price_1OF7fbDhrn1JbalvjBzeQQ0y" data-coupon="">Purchase</button>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                  <div class="box">
+                    <div class="icon"><a href=""><i class="fa fa-bar-chart"></i></a></div>
+                    <h4 class="title"><a href="">SEMI-ANNUAL UPDATE</a></h4>
+                    <div class="description-container">
+                      <p class="description">Receive the list today + </p>
+                      <p class="description">An updated list in 6 months</p>
+                    </div>
+                    <div class="price-container">
+                      <!-- <p class="price crossedout">$400</p> -->
+                      <p class="price">$400</p>
+                    </div>
+                    <div class="add-on">
+                      <input type="checkbox" name="nycList" class="nycCheckbox" data-priceid="price_1OIwHVDhrn1JbalvMnd4ie1C"/>
+                      <label for="nycListCheckbox" class="checkbox-label">Add the NYC list for $100 extra</label>
+                    </div>
+                    <!-- <span class="promoSale">40% off CODE: BLACK2</span> -->
+                    <button class="button2" id="purchaseBtn2" data-priceid="price_1OF7gvDhrn1Jbalv8RxU2qPB" data-coupon="">Purchase</button>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp monte1" data-wow-delay="0.2s">
+                  <div class="box">
+                    <div class="icon"><a href=""><i class="fa fa-desktop"></i></a></div>
+                    <h4 class="title"><a href="">QUARTERLY UPDATES</a></h4>
+                    <div class="description-container">
+                      <p class="description">Receive the list today + </p>
+                      <p class="description">Updated lists every 3 months (3 more updates)</p>
+                    </div>
+                    <div class="price-container">
+                      <!-- <p class="price crossedout">$700</p> -->
+                      <p class="price">$700</p>
+                    </div>
+                    <div class="add-on">
+                      <input type="checkbox" name="nycList" class="nycCheckbox" data-priceid="price_1OIwHVDhrn1JbalvMnd4ie1C" />
+                      <label for="nycListCheckbox" class="checkbox-label">Add the NYC list for $100 extra</label>
+                    </div>
+                    <!-- <span class="promoSale">50% off CODE: BLACK3</span> -->
+                    <button class="button2" id="purchaseBtn2" data-priceid="price_1OF7i5Dhrn1JbalvI6NNVUYO" data-coupon="">Purchase</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </section><!-- #services -->
+
+          <div id="successModal" style="">
+            <p id="successMessage"></p>
+            <button id="closeModalBtn">Close</button>
+          </div>
+
+          <script>
+            // Initialize Firebase
+            firebase.initializeApp({
+              apiKey: "AIzaSyAGAHFgzpsHkTsLirPMgF7MntX_mS_oTKY",
+              authDomain: "nycbb-f8a89.firebaseapp.com",
+              projectId: "nycbb-f8a89",
+            });
+
+
+          </script>
+
+          <div id="notification" class="hidden notification">
+            Spreadsheet download successfully initiated!
+          </div>
+
+          <div id="emailModal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <p>Enter your email to proceed with the purchase:</p>
+              <input type="email" id="emailInput" placeholder="Your Email">
+              <button id="submitEmailBtn">Submit</button>
+            </div>
+          </div>
+
+
+
+
+          <!--==========================
+          About Us Section
+          ============================-->
+          <section id="about">
+            <div class="container">
+              <div class="section-header aboutTitle">
+                <h3 class="section-title">What do we offer</h3>
+              </div>
+              <div class="row about-container">
+                <div class="col-lg-6 content order-lg-1 order-2">
+
+
+                  <div class="icon-box wow fadeInUp">
+                    <div class="icon"><i class="fa fa-check-circle"></i></div>
+                    <h4 class="title"><a href="">Accurate</a></h4>
+                    <p class="description"> Powered by AI and curated by our team, BrokerList.Ai is updated monthly to provide the most accurate contact details ensuring minimal bounce backs.</p>
+                  </div>
+
+                  <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="icon"><i class="fa fa-shopping-bag"></i></div>
+                    <h4 class="title"><a href="">Comprehensive</a></h4>
+                    <p class="description">BrokerList.Ai is an extensive list of over 13,000 NYC real estate agents from 30+ top firms and boutique companies including Serhant, Compass, Elliman, Corcoran, Sotheby’s, Brown Harris Stevens, Reuveni and more.</p>
+                  </div>
+
+                </div>
+                <div class="col-lg-6 content order-lg-1 order-2">
+
+                  <div class="icon-box wow fadeInUp">
+                    <div class="icon"><i class="fa fa-users"></i></div>
+                    <h4 class="title"><a href="">Socials</a></h4>
+                    <p class="description">The only list to provide available Instagram and LinkedIn handles for deeper connections.</p>
+                  </div>
+
+                  <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="icon"><i class="fa fa-download"></i></div>
+                    <h4 class="title"><a href="">Immediate Download</a></h4>
+                    <p class="description">The list is emailed to you in csv and excel format for immediate use.</p>
+                  </div>
+
+                  <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="icon"><i class="fa fa-bullseye"></i></div>
+                    <h4 class="title"><a href="">Targeted Campaigns</a></h4>
+                    <p class="description">Give yourself the edge of maximum exposure for your properties for sale, newsletters and products to all NYC Real Estate Agents.</p>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </section><!-- #about -->
+
+          <!--==========================
+          Call To Action Section
+          ============================-->
+          <section id="call-to-action">
+            <div class="container wow fadeIn">
+              <div class="row">
+                <div class="col-lg-9 text-center text-lg-left">
+                  <h3 class="cta-title">Download a sample</h3>
+                  <p class="cta-text"> Want to see a sample first? Go ahead</p>
+                </div>
+                <div class="col-lg-3 cta-btn-container text-center">
+                  <a class="cta-btn align-middle" download="BrokerListNYCsample" href="https://firebasestorage.googleapis.com/v0/b/nycbb-f8a89.appspot.com/o/SampleBrokerListAI.csv?alt=media&token=55f0120e-9450-4d18-a22a-9956a3c0a1cc">Download</a>
+                </div>
+              </div>
+
+            </div>
+          </section><!-- #call-to-action -->
+
+          <!--==========================
+          Portfolio Section
+          ============================-->
+          <!-- <section id="portfolio">
+          <div class="container wow fadeInUp">
+          <div class="section-header">
+          <h3 class="section-title">Agencies</h3>
+          <p class="section-description">We utilize various public data sources to provide the most complete profile available for every broker</p>
+        </div> -->
+        <!-- <div class="row">
+
+        <div class="col-lg-12">
+        <ul id="portfolio-flters">
+        <li data-filter=".filter-app, .filter-card, .filter-logo, .filter-web" class="filter-active">All</li>
+        <li data-filter=".filter-app">App</li>
+        <li data-filter=".filter-card">Card</li>
+        <li data-filter=".filter-logo">Logo</li>
+        <li data-filter=".filter-web">Web</li>
+      </ul>
+    </div>
+  </div> -->
+
+  <!-- <div class="monteColumn1" id="portfolioMonte">
+  <div class="monteItem1">
+  <a href="https://www.corcoran.com/real-estate-agents/search">
+  <img src="img/portfolio/corcoran.png" alt="">
+</a>
+</div>
+
+<div class="monteItem1">
+<a href="https://www.compass.com/agents/locations/new-york-ny/21429/">
+<img src="img/portfolio/compass.jpeg" alt="">
+</a>
+</div>
+
+<div class="monteItem1">
+<a href="https://www.sothebysrealty.com/eng/associates/ny-usa">
+<img src="img/portfolio/southebys.png" alt="">
+</a>
+</div>
+
+<div class="monteItem1">
+<a href="https://www.elliman.com/newyorkcity/associates/new-york-ny-usa">
+<img src="img/portfolio/elliman.jpeg" alt="">
+</a>
+</div>
+
+<div class="monteItem1">
+<a href="https://www.bhsusa.com/agents">
+<img src="img/portfolio/bhs.png" alt="">
+</a>
+</div>
+
+<div class="monteItem1">
+<a href="https://www.remax.com/real-estate-agents/-ny?filters={%22page%22:1,%22count%22:24,%22sortKey%22:{%22random%22:%22c9cih7I%22}}">
+<img src="img/portfolio/remax.png" alt="">
+</a>
+</div>
+
+<div class="monteItem1">
+<a href="https://www.century21.com/real-estate-agents/new-york-ny/LCNYNEWYORK/">
+<img src="img/portfolio/century.png" alt="">
+</a>
+</div>
+
+<div class="monteItem1">
+<a href="https://kwnyc.com/associate/">
+<img src="img/portfolio/kw.png" alt="">
+</a>
+</div>
+
+<div class="monteItem1">
+<a href="https://www.nestseekers.com/Agents/manhattan">
+<img src="img/portfolio/nest.png" alt="">
+</a>
+</div>
+
+<div class="monteItem1">
+<a href="https://www.wernewyork.com/Agents">
+<img src="img/portfolio/wernewyork.png" alt="">
+</a>
+</div>
+
+<div class="monteItem1">
+<a href="https://www.serhant.com/people">
+<img src="img/portfolio/serhant.png" alt="">
+</a>
+</div>
+
+<div class="monteItem1">
+<a href="https://www.bondnewyork.com/">
+<img src="img/portfolio/bond.png" alt="">
+</a>
+</div>
+
+<div class="monteItem1">
+<a href="https://ipg.nyc/agents/meet/manhattan">
+<img src="img/portfolio/ideal.png" alt="">
+</a>
+</div>
+
+<div class="monteItem1">
+<a href="https://www.theagencyre.com/agents?regions=100%2C200%2C300%2C400%2C500">
+<img src="img/portfolio/agency.png" alt="">
+</a>
+</div>
+
+<div class="monteItem1">
+<a href="https://www.elegran.com/agents">
+<img src="img/portfolio/elegran.jpeg" alt="">
+</a>
+</div>
+
+<div class="monteItem1">
+<a href="https://www.livingny.com/leasing-sales/meet-our-team/">
+<img src="img/portfolio/living.png" alt="">
+</a>
+</div>
+
+<div class="monteItem1">
+<a href="https://levelgroup.com/agent">
+<img src="img/portfolio/level.png" alt="">
+</a>
+</div>
+
+<div class="monteItem1">
+<a href="https://cbwarburg.com/agents/">
+<img src="img/portfolio/cbw.png" alt="">
+</a>
+</div>
+
+<div class="monteItem1">
+<a href="https://www.modernspacesnyc.com/Agents">
+<img src="img/portfolio/modern.png" alt="">
+</a>
+</div>
+
+<div class="monteItem1">
+<a href="https://nyc.bhhsnyproperties.com/find-real-estate-agents/sort-na">
+<img src="img/portfolio/berkshire.png" alt="">
+</a>
+</div>
+
+<div class="monteItem1">
+<a href="https://corenyc.com/agents/">
+<img src="img/portfolio/core.png" alt="">
+</a>
+</div>
+
+<div class="monteItem1">
+<a href="https://newyorkcity.evrealestate.com/roster/agents">
+<img src="img/portfolio/engel.png" alt="">
+</a>
+</div>
+
+<div class="monteItem1">
+<a href="https://www.christiesrealestate.com/associates/new-york-ny-usa">
+<img src="img/portfolio/christies.jpeg" alt="">
+</a>
+</div>
+
+<div class="monteItem1">
+<a href="https://www.foxresidential.com/agents/">
+<img src="img/portfolio/fox.jpeg" alt="">
+</a>
+</div>
+
+<div class="monteItem1">
+<a href="https://lesliegarfield.com/agents">
+<img src="img/portfolio/leslie.jpeg" alt="">
+</a>
+</div>
+
+<div class="monteItem1">
+<a href="https://argoresidential.com/our-agents/">
+<img src="img/portfolio/argo.png" alt="">
+</a>
+</div>
+
+<div class="monteItem1">
+<a href="https://www.kleiers.com/agents">
+<img src="img/portfolio/kleier.jpeg" alt="">
+</a>
+</div>
+
+<div class="monteItem1">
+<a href="https://www.modlingroup.com/">
+<img src="img/portfolio/modlin.jpeg" alt="">
+</a>
+</div>
+
+<div class="monteItem1">
+<a href="https://officialpartners.com/agents">
+<img src="img/portfolio/official.png" alt="">
+</a>
+</div>
+
+<div class="monteItem1">
+<a href="https://sloanesquarenyc.com/?page=agents">
+<img src="img/portfolio/sloane.png" alt="">
+</a>
+</div>
+
+<div class="monteItem1">
+<a href="https://reuveni.com/agents/">
+<img src="img/portfolio/reuveni.png" alt="">
+</a>
+</div>
+
+<div class="monteItem1">
+<a href="https://exprealty.com/agents/?page=1&country=US&location=New+York%2C+NY">
+<img src="img/portfolio/exp.png" alt="">
+</a>
+</div>
+
+
+</div>
+
+</div> -->
+<!-- </section> -->
+
+<!--==========================
+Team Section
+============================-->
+<!-- <section id="team">
+<div class="container wow fadeInUp">
+<div class="section-header">
+<h3 class="section-title">Team</h3>
+<p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+</div>
+<div class="row">
+<div class="col-lg-3 col-md-6">
+<div class="member">
+<div class="pic"><img src="img/team-1.jpg" alt=""></div>
+<h4>Walter White</h4>
+<span>Chief Executive Officer</span>
+<div class="social">
+<a href=""><i class="fa fa-twitter"></i></a>
+<a href=""><i class="fa fa-facebook"></i></a>
+<a href=""><i class="fa fa-google-plus"></i></a>
+<a href=""><i class="fa fa-linkedin"></i></a>
+</div>
+</div>
+</div>
+
+<div class="col-lg-3 col-md-6">
+<div class="member">
+<div class="pic"><img src="img/team-2.jpg" alt=""></div>
+<h4>Sarah Jhinson</h4>
+<span>Product Manager</span>
+<div class="social">
+<a href=""><i class="fa fa-twitter"></i></a>
+<a href=""><i class="fa fa-facebook"></i></a>
+<a href=""><i class="fa fa-google-plus"></i></a>
+<a href=""><i class="fa fa-linkedin"></i></a>
+</div>
+</div>
+</div>
+
+<div class="col-lg-3 col-md-6">
+<div class="member">
+<div class="pic"><img src="img/team-3.jpg" alt=""></div>
+<h4>William Anderson</h4>
+<span>CTO</span>
+<div class="social">
+<a href=""><i class="fa fa-twitter"></i></a>
+<a href=""><i class="fa fa-facebook"></i></a>
+<a href=""><i class="fa fa-google-plus"></i></a>
+<a href=""><i class="fa fa-linkedin"></i></a>
+</div>
+</div>
+</div>
+
+<div class="col-lg-3 col-md-6">
+<div class="member">
+<div class="pic"><img src="img/team-4.jpg" alt=""></div>
+<h4>Amanda Jepson</h4>
+<span>Accountant</span>
+<div class="social">
+<a href=""><i class="fa fa-twitter"></i></a>
+<a href=""><i class="fa fa-facebook"></i></a>
+<a href=""><i class="fa fa-google-plus"></i></a>
+<a href=""><i class="fa fa-linkedin"></i></a>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</section> -->
+
+<!--==========================
+Contact Section
+============================-->
+<section id="contact">
+  <div class="container wow fadeInUp">
+    <div class="section-header">
+      <h3 class="section-title">Contact Us</h3>
+      <!-- <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p> -->
+    </div>
+  </div>
+
+
+  <div class="container wow fadeInUp mt-5">
+    <div class="row justify-content-center">
+
+      <!-- <div class="col-lg-3 col-md-4">
+
+      <div class="info">
+      <div>
+      <i class="fa fa-map-marker"></i>
+      <p>A108 Adam Street<br>New York, NY 535022</p>
+    </div>
+
+    <div>
+    <i class="fa fa-envelope"></i>
+    <p>info@example.com</p>
+  </div>
+
+  <div>
+  <i class="fa fa-phone"></i>
+  <p>+1 5589 55488 55s</p>
+</div>
+</div>
+
+<div class="social-links">
+<a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+<a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+<a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+<a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+</div>
+
+</div> -->
+
+<div class="col-lg-5 col-md-8">
+  <div class="form">
+    <div id="sendmessage">Your message has been sent. Thank you!</div>
+    <div id="errormessage"></div>
+    <form action="" method="post" role="form" class="contactForm" id="supportForm">
+      <div class="form-group">
+        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+        <div class="validation"></div>
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" name="customerEmail" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+        <div class="validation"></div>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+        <div class="validation"></div>
+      </div>
+      <div class="form-group">
+        <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+        <div class="validation"></div>
+      </div>
+      <div class="text-center"><button type="submit">Send Message</button></div>
+    </form>
+  </div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<div class="spinner-overlay">
+  <div class="spinner"></div>
+</div>
+</main>
+
+<!--==========================
+Footer
+============================-->
+<footer id="footer">
+  <div class="footer-top">
+    <div class="container">
+
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="copyright">
+      &copy; Copyright 2023 <strong>BrokerList.ai</strong>. Contact us: support@brokerlist.ai
+    </div>
+  </div>
+</div>
+<!-- </footer>
+
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+<!-- JavaScript Libraries -->
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/jquery/jquery-migrate.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/wow/wow.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/counterup/counterup.min.js"></script>
+<script src="lib/superfish/hoverIntent.js"></script>
+<script src="lib/superfish/superfish.min.js"></script>
+
+<!-- Contact Form JavaScript File -->
+<script src="contactform/contactform.js"></script>
+
+<!-- Template Main Javascript File -->
+<script src="js/main.js"></script>
+
+</body>
+</html>

@@ -133,12 +133,23 @@ jQuery(document).ready(function ($) {
     selectedCoupon = $(this).data('coupon');  // Store the priceId when a button is clicked
     $('#spinner').show();
 
-    console.log("Fetched priceId:", selectedPriceId);  // Debugging statement
+    var addonId = "";
+    let priceIds = [selectedPriceId];
+
+    $('.nycCheckbox').each(function() {
+        if ($(this).is(':checked')) {
+            addonId = $(this).data('priceid');
+        }
+    });
+    if (addonId.length > 0) {
+      priceIds.push(addonId)
+    }
+    console.log("Fetched priceIds:", priceIds);  // Debugging statement
 
     var functions = firebase.functions();
     var createCheckoutSession = functions.httpsCallable('createCheckoutSession');
 
-    createCheckoutSession({ priceId: selectedPriceId, coupon: selectedCoupon })
+    createCheckoutSession({ priceIds: priceIds, coupon: selectedCoupon })
     .then(function(result) {
       console.log(result)
       $('#spinner').hide();
@@ -159,6 +170,10 @@ jQuery(document).ready(function ($) {
     });
   });
 
+  $(document).on('change', '.nycCheckbox', function() {
+      var isChecked = $(this).is(':checked');
+      $('.nycCheckbox').prop('checked', isChecked);
+  });
 
 
   function validateEmail(email) {

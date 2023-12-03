@@ -28,6 +28,40 @@ jQuery(document).ready(function ($) {
     speed: 400
   });
 
+  var url = window.location.href;
+
+    // Extract the last part of the URL
+    var urlComponent = url.substring(url.lastIndexOf('/') + 1);
+
+    // Determine the color based on the URL component
+    var color;
+    if (urlComponent === 'index.html') {
+        color = '#2dc997';
+    } else if (urlComponent === 'CT.html') {
+        color = '#001be6';
+    } else {
+      color = '#2dc997';
+    }
+
+    // Apply the color to your CSS
+    if (color) {
+        $(':root').css('--base-color', color);
+    }
+
+  $('.nav-menu li').click(function(e) {
+    // Check if this item has a submenu
+    if ($(this).children('ul').length > 0) {
+      e.preventDefault(); // Prevent default link behavior
+      // Toggle the 'show-submenu' class
+      $(this).toggleClass('show-submenu');
+    }
+  });
+
+  // Prevent clicks on submenu items from closing the submenu
+  $('.nav-menu li ul').click(function(e) {
+    e.stopPropagation();
+  });
+
   // Mobile Navigation
   if ($('#nav-menu-container').length) {
     var $mobile_nav = $('#nav-menu-container').clone().prop({

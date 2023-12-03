@@ -107,7 +107,7 @@ expressCheckoutElement.mount('#express-checkout-element');
   const style = {
     base: {
       color: '#32325d',
-      fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
       fontSmoothing: 'antialiased',
       fontSize: '16px',
       '::placeholder': {

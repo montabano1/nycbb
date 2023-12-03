@@ -51,12 +51,6 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-functions.js"></script>
   <script src="https://js.stripe.com/v3/"></script>
 
-  <!-- =======================================================
-  Theme Name: Regna
-  Theme URL: https://bootstrapmade.com/regna-bootstrap-onepage-template/
-  Author: BootstrapMade.com
-  License: https://bootstrapmade.com/license/
-  ======================================================= -->
 </head>
 
 <body>
@@ -74,8 +68,14 @@
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="#hero">Home</a></li>
-          <li><a href="./index.html">Cities</a></li>
+          <li><a href="">Cities</a>
+            <ul>
+              <li><a href="./index.html">NYC</a></li>
+              <li><a href="./CT.html">CT</a></li>
+              <!-- Add more submenu items here if needed -->
+            </ul>
+          </li>
+
           <li><a href="#services">Products</a></li>
           <li><a href="#about">About Us</a></li>
           <li><a href="#contact">Contact Us</a></li>
@@ -89,7 +89,7 @@
   Hero Section
   ============================-->
   <section id="hero">
-    <div class="video-background">
+  <div class="video-background">
       <video autoplay muted loop id="background-video">
 
         <source src="img/landingCT.mp4" type="video/mp4">
@@ -159,7 +159,7 @@
                 <div class="col-lg-3 col-6 text-center">
                   <div class="addme">
                     <span data-toggle="counter-up">30</span>
-                    <span>+</<span>
+                    <span>+</span>
                     </div>
                     <p>Brokerage Agencies</p>
                   </div>
@@ -196,7 +196,8 @@
                       <p class="price">$250</p>
                     </div>
                     <div class="add-on">
-                      <input type="checkbox" name="nycList" class="nycCheckbox" data-priceid="price_1OIwHVDhrn1JbalvMnd4ie1C"/>
+                      <input type="checkbox" name="nycList" class="nycCheckbox" data-priceid="price_1OIwHVDhrn1JbalvMnd4ie1C"
+                      />
                       <label for="nycListCheckbox" class="checkbox-label">Add the NYC list for $100 extra</label>
                     </div>
                     <!-- <span class="promoSale">30% off CODE: BLACK1</span> -->
@@ -248,7 +249,7 @@
             </div>
           </section><!-- #services -->
 
-          <div id="successModal" style="">
+          <div id="successModal" >
             <p id="successMessage"></p>
             <button id="closeModalBtn">Close</button>
           </div>

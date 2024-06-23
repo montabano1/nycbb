@@ -159,7 +159,6 @@ jQuery(document).ready(function ($) {
     time: 1000
   });
 
-  // custom code monte
   var selectedPriceId;  // Global variable to store the selected priceId
 
   $('button[id^="purchaseBtn"]').on('click', function() {
